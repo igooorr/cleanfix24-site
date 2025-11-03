@@ -1,4 +1,0 @@
-User-agent: *
-Disallow:
-
-Sitemap: https://cleanfix24.co.uk/sitemap.xml
