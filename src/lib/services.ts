@@ -575,7 +575,7 @@ export const SERVICES: Service[] = [
       "Specialist treatment for stubborn stains on sofas, mattresses and carpets — food, drink, pets, blood and more.",
     intro: [
       "Different stains need different treatments. Coffee, red wine, blood, make-up, ink and pet accidents all react differently — and the wrong product can set a stain for good.",
-      "We identify the stain and the fabric, choose the right treatment, and remove it as safely and completely as possible from sofas, armchairs, mattresses and carpets. Please note we treat stains on furniture and floors only — we don't clean clothing.",
+      "We identify the stain and the fabric, choose the right treatment, and remove it as safely and completely as possible from sofas, armchairs, mattresses and carpets. We can also clean small carpet areas and stair carpets. Please note we treat stains on furniture and floors only — we don't clean clothing.",
       "We treat stains in homes across Taunton, Wellington and the surrounding towns and villages, often on the same visit as a sofa or mattress clean.",
     ],
     icon: Droplets,
@@ -588,6 +588,7 @@ export const SERVICES: Service[] = [
       "Blood and sweat",
       "Make-up and ink marks",
       "Water marks and rings",
+      "Small carpet areas and stair carpets",
     ],
     process: [
       "Send us a photo and tell us what the stain is",
@@ -599,6 +600,10 @@ export const SERVICES: Service[] = [
       {
         q: "How much does stain removal cost?",
         a: "Spot stain removal starts from £30. If the whole piece of furniture needs cleaning, we'll price it as a sofa or mattress clean instead.",
+      },
+      {
+        q: "Do you clean whole carpets?",
+        a: "We clean stains, small carpet areas such as a hallway or a rug-sized patch, and stair carpets. We don't offer full wall-to-wall carpet cleaning for whole rooms or houses.",
       },
       {
         q: "Can you remove stains from clothes?",
@@ -887,7 +892,7 @@ export const SERVICES: Service[] = [
 ];
 
 export const NOT_OFFERED =
-  "we don't offer full carpet cleaning (only spot stain removal on carpets), clothing stain removal, or any work at height, such as roof, gutter or high-level window cleaning";
+  "we don't offer whole-room carpet cleaning (only stains, small carpet areas and stairs), clothing stain removal, or any work at height, such as roof, gutter or high-level window cleaning";
 
 export const servicesIn = (category: CategoryId) =>
   SERVICES.filter((s) => s.category === category);
