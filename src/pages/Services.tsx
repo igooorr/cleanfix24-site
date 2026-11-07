@@ -1,13 +1,14 @@
+import { Link } from "react-router-dom";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ServiceCard from "@/components/ServiceCard";
-import { INTERIOR_SERVICES, EXTERIOR_SERVICES, NOT_OFFERED, type Service } from "@/lib/services";
+import { CATEGORIES, NOT_OFFERED, servicesIn, type Category } from "@/lib/services";
 import { WHATSAPP_URL } from "@/lib/site";
 
 const Services = () => {
-  usePageMeta("Cleaning Services | Cleanfix24 - Upholstery, Mattress & Patio Cleaning", "Sofa and upholstery cleaning, mattress cleaning, stain removal, patio and exterior wall cleaning, house cleaning and car detailing across Wellington, Taunton, Somerset & Devon.", "/services");
+  usePageMeta("/services");
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -21,27 +22,19 @@ const Services = () => {
             Our Services
           </h1>
           <p className="text-xl text-center mt-4 text-white/90 max-w-3xl mx-auto animate-fade-in">
-            Inside and out — upholstery, mattresses, stain removal, patios and more
+            Home and commercial cleaning, sofas and mattresses, patios and more — inside and out
           </p>
         </div>
       </section>
 
-      <ServiceSection
-        title="Interior Cleaning"
-        subtitle="Soft furniture, mattresses and stain removal are our speciality"
-        services={INTERIOR_SERVICES}
-      />
-      <ServiceSection
-        title="Exterior Cleaning"
-        subtitle="Bring the outside of your home back to life"
-        services={EXTERIOR_SERVICES}
-        muted
-      />
+      {CATEGORIES.map((category, i) => (
+        <ServiceSection key={category.id} category={category} muted={i % 2 === 1} />
+      ))}
 
       <section className="pb-4 pt-8">
         <div className="container mx-auto px-4">
           <p className="max-w-3xl mx-auto text-center text-sm text-muted-foreground">
-            Please note: {NOT_OFFERED.toLowerCase()} are not currently part of our services.
+            Please note: {NOT_OFFERED} are not currently part of our services.
           </p>
         </div>
       </section>
@@ -66,7 +59,7 @@ const Services = () => {
               </div>
             </div>
             <p className="text-muted-foreground mt-6">
-              Not sure if we cover your area? <a href="/contact" className="text-primary font-semibold hover:underline">Contact us</a> to find out!
+              Not sure if we cover your area? <Link to="/contact" className="text-primary font-semibold hover:underline">Contact us</Link> to find out!
             </p>
           </div>
         </div>
@@ -91,12 +84,12 @@ const Services = () => {
               >
                 WhatsApp Us
               </a>
-              <a 
-                href="/contact"
+              <Link
+                to="/contact"
                 className="border-2 border-white text-white hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors"
               >
                 Contact Form
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -107,32 +100,16 @@ const Services = () => {
   );
 };
 
-const ServiceSection = ({
-  title,
-  subtitle,
-  services,
-  muted = false,
-}: {
-  title: string;
-  subtitle: string;
-  services: Service[];
-  muted?: boolean;
-}) => (
-  <section className={`py-16 ${muted ? "bg-muted/30" : ""}`}>
+const ServiceSection = ({ category, muted = false }: { category: Category; muted?: boolean }) => (
+  <section id={category.id} className={`py-16 scroll-mt-20 ${muted ? "bg-muted/30" : ""}`}>
     <div className="container mx-auto px-4">
       <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold mb-3">{title}</h2>
-        <p className="text-lg text-muted-foreground">{subtitle}</p>
+        <h2 className="text-3xl md:text-4xl font-bold mb-3">{category.title}</h2>
+        <p className="text-lg text-muted-foreground">{category.subtitle}</p>
       </div>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        {services.map((service, index) => (
-          <div
-            key={service.title}
-            className="animate-fade-in"
-            style={{ animationDelay: `${index * 0.1}s` }}
-          >
-            <ServiceCard {...service} />
-          </div>
+        {servicesIn(category.id).map((service) => (
+          <ServiceCard key={service.slug} service={service} />
         ))}
       </div>
     </div>

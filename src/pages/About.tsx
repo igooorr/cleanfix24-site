@@ -7,7 +7,7 @@ import heroImage from "@/assets/hero.webp";
 import { Heart, Award, Users } from "lucide-react";
 
 const About = () => {
-  usePageMeta("About Us | Cleanfix24 - Family-Run Cleaners in Somerset", "Meet Ihor and Ruslana, the family behind Cleanfix24, a trusted local cleaning business serving Wellington, Taunton and the Somerset & Devon area.", "/about");
+  usePageMeta("/about");
   return (
     <div className="min-h-screen flex flex-col">
       <Navigation />

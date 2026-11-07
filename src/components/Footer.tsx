@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { SITE, TEL_URL, MAILTO_URL } from "@/lib/site";
+import { SERVICES, servicePath } from "@/lib/services";
 
 const Footer = () => {
   return (
     <footer className="bg-accent text-accent-foreground mt-20">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
             <h3 className="text-xl font-bold mb-4">Cleanfix24</h3>
             <p className="text-accent-foreground/80">
@@ -36,6 +37,27 @@ const Footer = () => {
               <li>
                 <Link to="/contact" className="text-accent-foreground/80 hover:text-accent-foreground transition-colors">
                   Contact
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-bold mb-4">Services</h3>
+            <ul className="space-y-2">
+              {SERVICES.slice(0, 8).map((s) => (
+                <li key={s.slug}>
+                  <Link
+                    to={servicePath(s)}
+                    className="text-accent-foreground/80 hover:text-accent-foreground transition-colors"
+                  >
+                    {s.title}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <Link to="/services" className="font-semibold hover:underline">
+                  All services →
                 </Link>
               </li>
             </ul>

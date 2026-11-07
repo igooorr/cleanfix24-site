@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
+import { SERVICES, getService } from "@/lib/services";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -12,11 +14,13 @@ import { Phone, Mail, MapPin, MessageCircle } from "lucide-react";
 import { SITE, WHATSAPP_URL, TEL_URL, MAILTO_URL } from "@/lib/site";
 
 const Contact = () => {
-  usePageMeta("Contact Us | Cleanfix24 - Free Quotes in Somerset & Devon", "Get a free cleaning quote from Cleanfix24. Call, WhatsApp or send a message - serving Wellington, Taunton and surrounding areas.", "/contact");
+  usePageMeta("/contact");
+  const [searchParams] = useSearchParams();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
+    service: getService(searchParams.get("service") ?? undefined)?.title ?? "",
     message: ""
   });
 
@@ -30,7 +34,7 @@ const Contact = () => {
     }
 
     // Create WhatsApp message
-    const whatsappMessage = `New Contact Form Submission:\n\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\n\nMessage:\n${formData.message}`;
+    const whatsappMessage = `New Contact Form Submission:\n\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nService: ${formData.service || "Not specified"}\n\nMessage:\n${formData.message}`;
     const whatsappUrl = `${WHATSAPP_URL}?text=${encodeURIComponent(whatsappMessage)}`;
     
     window.open(whatsappUrl, '_blank');
@@ -38,10 +42,10 @@ const Contact = () => {
     toast.success("Opening WhatsApp. Your message is prepared — click send to complete.");
 
     // Reset form
-    setFormData({ name: "", email: "", phone: "", message: "" });
+    setFormData({ name: "", email: "", phone: "", service: "", message: "" });
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
@@ -114,6 +118,25 @@ const Contact = () => {
                   />
                 </div>
                 
+                <div>
+                  <Label htmlFor="service">Service</Label>
+                  <select
+                    id="service"
+                    name="service"
+                    value={formData.service}
+                    onChange={handleChange}
+                    className="mt-1 flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base md:text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                  >
+                    <option value="">Select a service (optional)</option>
+                    {SERVICES.map((s) => (
+                      <option key={s.slug} value={s.title}>
+                        {s.title}
+                      </option>
+                    ))}
+                    <option value="Other">Other / not sure</option>
+                  </select>
+                </div>
+
                 <div>
                   <Label htmlFor="message">Message *</Label>
                   <Textarea

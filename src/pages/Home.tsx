@@ -1,15 +1,16 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import heroImage from "@/assets/hero.webp";
-import { INTERIOR_SERVICES, EXTERIOR_SERVICES } from "@/lib/services";
+import { Link } from "react-router-dom";
+import ServiceCard from "@/components/ServiceCard";
+import { getService, type Service } from "@/lib/services";
 import { SITE, WHATSAPP_URL, TEL_URL } from "@/lib/site";
 
 const Home = () => {
-  usePageMeta("Cleanfix24 - Professional Cleaning Services | Somerset & Devon", "Family-run cleaning service in Wellington, Taunton, Somerset & Devon. Sofa & upholstery cleaning, mattress cleaning, stain removal and patio cleaning. Free quotes.", "/");
+  usePageMeta("/");
   const scrollToContact = () => {
     const contactSection = document.getElementById('contact');
     if (contactSection) {
@@ -17,13 +18,15 @@ const Home = () => {
     }
   };
 
-  // Highlighted on the home page; full list lives on /services.
+  // Highlighted on the home page; the full list lives on /services.
   const services = [
-    INTERIOR_SERVICES[0], // Upholstery
-    INTERIOR_SERVICES[1], // Mattress
-    INTERIOR_SERVICES[2], // Stain removal
-    EXTERIOR_SERVICES[0], // Patio
-  ];
+    "upholstery-cleaning",
+    "mattress-cleaning",
+    "end-of-tenancy-cleaning",
+    "deep-cleaning",
+    "laundry-ironing-service",
+    "patio-cleaning",
+  ].map((slug) => getService(slug) as Service);
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -56,14 +59,14 @@ const Home = () => {
                   asChild
                   className="border-2 border-white bg-transparent text-white hover:bg-white/10 hover:text-white text-lg px-8"
                 >
-                  <a href="/services">View Services</a>
+                  <Link to="/services">View Services</Link>
                 </Button>
               </div>
             </div>
             <div className="animate-fade-in hidden md:block">
               <img 
                 src={heroImage} 
-                alt="Professional Cleanfix24 cleaner at work" fetchPriority="high" width={1100} height={619} 
+                alt="Professional Cleanfix24 cleaner at work" {...({ fetchpriority: "high" } as object)} width={1100} height={619} 
                 className="rounded-2xl shadow-2xl"
               />
             </div>
@@ -78,7 +81,7 @@ const Home = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Welcome to Cleanfix24</h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
               At Cleanfix24, we provide professional, family-run cleaning services across Somerset and Devon. 
-              From sofas and mattresses to patios — we make every space shine. Based in Wellington and Taunton, 
+              From regular and end of tenancy cleans to sofas, mattresses, patios and laundry — we make every space shine. Based in Wellington and Taunton, 
               we're passionate about delivering spotless results you can trust.
             </p>
           </div>
@@ -89,38 +92,15 @@ const Home = () => {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Our Services</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {services.map((service, index) => (
-              <Card 
-                key={service.title}
-                className="flex flex-col overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-fade-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="aspect-video overflow-hidden">
-                  {service.image ? (
-                    <img
-                      src={service.image}
-                      alt={service.title}
-                      loading="lazy"
-                      decoding="async"
-                      className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
-                    />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary to-secondary">
-                      <service.icon size={64} strokeWidth={1.5} className="text-white" aria-hidden="true" />
-                    </div>
-                  )}
-                </div>
-                <CardContent className="p-6 flex flex-col flex-1">
-                  {service.image && <service.icon size={40} className="text-primary mb-4" aria-hidden="true" />}
-                  <h3 className="text-xl font-bold mb-3">{service.title}</h3>
-                  <p className="text-muted-foreground mb-4">{service.description}</p>
-                  <Button asChild className="w-full mt-auto bg-primary hover:bg-primary/90">
-                    <a href="/services">Learn More</a>
-                  </Button>
-                </CardContent>
-              </Card>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {services.map((service) => (
+              <ServiceCard key={service.slug} service={service} />
             ))}
+          </div>
+          <div className="text-center mt-12">
+            <Button asChild size="lg" variant="outline" className="border-2 border-primary text-primary hover:bg-primary hover:text-white">
+              <Link to="/services">View All Services</Link>
+            </Button>
           </div>
         </div>
       </section>
@@ -145,9 +125,9 @@ const Home = () => {
                 </a>
               </Button>
               <Button size="lg" variant="outline" asChild>
-                <a href="/contact">
+                <Link to="/contact">
                   Contact Form
-                </a>
+                </Link>
               </Button>
             </div>
           </div>

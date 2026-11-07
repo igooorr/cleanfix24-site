@@ -9,7 +9,10 @@ const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
-  const isActive = (path: string) => location.pathname === path;
+  // Normalise trailing slashes (static hosts may serve /about/ for /about).
+  const current = location.pathname.replace(/\/+$/, "") || "/";
+  const isActive = (path: string) =>
+    path === "/" ? current === "/" : current === path || current.startsWith(path + "/");
 
   const navLinks = [
     { path: "/", label: "Home" },

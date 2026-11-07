@@ -1,24 +1,21 @@
+import { useEffect, useState } from "react";
+import { BrowserRouter } from "react-router-dom";
 import { Toaster } from "@/components/ui/sonner";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Services from "./pages/Services";
-import Contact from "./pages/Contact";
-import NotFound from "./pages/NotFound";
+import AppRoutes from "./AppRoutes";
 
-const App = () => (
-  <BrowserRouter>
-    <ScrollToTop />
-    <Toaster />
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/services" element={<Services />} />
-      <Route path="/contact" element={<Contact />} />
-      <Route path="*" element={<NotFound />} />
-    </Routes>
-  </BrowserRouter>
-);
+const App = () => {
+  // Toaster is client-only so the prerendered HTML hydrates without mismatches.
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
+  return (
+    <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+      <ScrollToTop />
+      {mounted && <Toaster />}
+      <AppRoutes />
+    </BrowserRouter>
+  );
+};
 
 export default App;

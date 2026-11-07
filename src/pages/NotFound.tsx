@@ -2,8 +2,11 @@ import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
+import { usePageMeta } from "@/hooks/usePageMeta";
 
-const NotFound = () => (
+const NotFound = () => {
+  usePageMeta("/404");
+  return (
   <div className="min-h-screen flex flex-col">
     <Navigation />
     <main className="flex-1 flex items-center justify-center bg-muted/30 py-20">
@@ -17,6 +20,7 @@ const NotFound = () => (
     </main>
     <Footer />
   </div>
-);
+  );
+};
 
 export default NotFound;
