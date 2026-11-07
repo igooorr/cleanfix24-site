@@ -7,6 +7,7 @@ import patioImage from "@/assets/patio.webp";
 import handymanImage from "@/assets/handyman.webp";
 import laundryImage from "@/assets/laundry.webp";
 import gardenImage from "@/assets/garden.webp";
+import commercialImage from "@/assets/commercial.webp";
 import gBuildersKitchenBefore from "@/assets/gallery/builders-kitchen-before.webp";
 import gBuildersKitchenAfter from "@/assets/gallery/builders-kitchen-after.webp";
 import gKitchenDinerBefore from "@/assets/gallery/kitchen-diner-before.webp";
@@ -346,6 +347,7 @@ export const SERVICES: Service[] = [
       "We cover businesses and venues in Taunton, Wellington, Bridgwater, Wiveliscombe, Langport, Ilminster and the villages across Somerset and Mid Devon.",
     ],
     icon: UtensilsCrossed,
+    image: commercialImage,
     priceFrom: "£22/hour",
     features: [
       "After banquets, parties and private events",
