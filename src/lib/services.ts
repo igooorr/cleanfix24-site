@@ -571,9 +571,9 @@ export const SERVICES: Service[] = [
   {
     slug: "stain-removal",
     category: "upholstery",
-    title: "Stain Removal",
+    title: "Stain Removal & Stair Carpets",
     short:
-      "Specialist treatment for stubborn stains on sofas, mattresses and carpets — food, drink, pets, blood and more.",
+      "Stubborn stains lifted from sofas, mattresses and carpets, plus stair carpet and small carpet area cleaning.",
     intro: [
       "Different stains need different treatments. Coffee, red wine, blood, make-up, ink and pet accidents all react differently — and the wrong product can set a stain for good.",
       "We identify the stain and the fabric, choose the right treatment, and remove it as safely and completely as possible from sofas, armchairs, mattresses and carpets. We can also clean small carpet areas and stair carpets. Please note we treat stains on furniture and floors only — we don't clean clothing.",
@@ -603,6 +603,10 @@ export const SERVICES: Service[] = [
         a: "Spot stain removal starts from £30. If the whole piece of furniture needs cleaning, we'll price it as a sofa or mattress clean instead.",
       },
       {
+        q: "How much does stair carpet cleaning cost?",
+        a: "Stair carpets are priced by the number of stairs and how dirty they are. Send us a photo on WhatsApp and we'll give you a clear price.",
+      },
+      {
         q: "Do you clean whole carpets?",
         a: "We clean stains, small carpet areas such as a hallway or a rug-sized patch, and stair carpets. We don't offer full wall-to-wall carpet cleaning for whole rooms or houses.",
       },
@@ -615,9 +619,9 @@ export const SERVICES: Service[] = [
         a: "Blot (don't rub) with a clean white cloth and avoid household chemicals — then contact us as soon as possible.",
       },
     ],
-    metaTitle: "Stain Removal for Sofas, Mattresses & Carpets | Cleanfix24",
+    metaTitle: "Stain Removal & Stair Carpet Cleaning Taunton | Cleanfix24",
     metaDescription:
-      "Stain removal for sofas, mattresses and carpets in Taunton, Wellington & Somerset from £30. Wine, coffee, pet and make-up stains lifted.",
+      "Stain removal and stair carpet cleaning in Taunton, Wellington & Somerset from £30. Sofas, mattresses, stairs and small carpet areas.",
   },
 
   // ---------- Exterior ----------
