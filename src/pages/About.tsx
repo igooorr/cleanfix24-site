@@ -3,7 +3,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/hero.webp";
+import ruslanaImage from "@/assets/ruslana.webp";
 import { Heart, Award, Users } from "lucide-react";
 
 const About = () => {
@@ -30,11 +30,18 @@ const About = () => {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             <div className="animate-fade-in">
-              <img 
-                src={heroImage} 
-                alt="Professional home cleaning by Cleanfix24" loading="lazy" decoding="async" width={1100} height={619} 
-                className="rounded-2xl shadow-xl"
-              />
+              <figure className="max-w-md mx-auto">
+                <img
+                  src={ruslanaImage}
+                  alt="Ruslana, co-owner of Cleanfix24"
+                  loading="lazy"
+                  decoding="async"
+                  width={640}
+                  height={800}
+                  className="rounded-2xl shadow-xl w-full h-auto"
+                />
+                <figcaption className="text-center mt-3 text-muted-foreground">Ruslana, co-owner of Cleanfix24</figcaption>
+              </figure>
             </div>
             <div className="animate-fade-in">
               <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Story</h2>

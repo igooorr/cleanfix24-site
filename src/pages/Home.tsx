@@ -11,6 +11,7 @@ import HomeCareBanner from "@/components/HomeCareBanner";
 import { getService, type Service } from "@/lib/services";
 import { SITE, WHATSAPP_URL, TEL_URL } from "@/lib/site";
 import QuickQuoteForm from "@/components/QuickQuoteForm";
+import ruslanaImage from "@/assets/ruslana.webp";
 import { ClipboardList, MessageCircle, Phone, PoundSterling, Sparkles } from "lucide-react";
 
 const STEPS = [
@@ -91,17 +92,35 @@ const Home = () => {
 
       <TrustBar />
 
-      {/* Welcome Section */}
+      {/* Meet the owners */}
       <section className="py-16 bg-muted/30">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center animate-fade-in">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Local cleaners who treat your home like their own</h2>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Cleanfix24 is a small family business based in Wellington and Taunton. We clean homes,
-              rentals and holiday lets across Somerset and Devon — from weekly cleans and end of tenancy
-              cleans to sofas, mattresses, patios, laundry and garden jobs. No call centres and no
-              surprises: you speak to the people who do the work, and you know the price before we start.
-            </p>
+          <div className="grid md:grid-cols-[2fr_3fr] gap-10 items-center max-w-5xl mx-auto">
+            <img
+              src={ruslanaImage}
+              alt="Ruslana, co-owner of Cleanfix24"
+              loading="lazy"
+              decoding="async"
+              width={640}
+              height={800}
+              className="rounded-2xl shadow-xl w-full max-w-sm mx-auto h-auto"
+            />
+            <div className="animate-fade-in">
+              <p className="text-primary font-semibold mb-2">Meet the owners</p>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">Hi, we're Ihor and Ruslana</h2>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+                Cleanfix24 is our small family business, based in Wellington and Taunton. We clean homes,
+                rentals and holiday lets across Somerset and Devon — from weekly cleans and end of tenancy
+                cleans to sofas, mattresses, patios and car interiors.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                No call centres and no surprises: you speak to us directly, you know the price before we
+                start, and we treat your home like our own.
+              </p>
+              <Button asChild size="lg" variant="outline" className="border-2 border-primary text-primary hover:bg-primary hover:text-white">
+                <Link to="/about">More about us</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
