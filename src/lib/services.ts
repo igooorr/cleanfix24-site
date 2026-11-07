@@ -6,6 +6,7 @@ import mattressImage from "@/assets/mattress.webp";
 import patioImage from "@/assets/patio.webp";
 import handymanImage from "@/assets/handyman.webp";
 import laundryImage from "@/assets/laundry.webp";
+import gardenImage from "@/assets/garden.webp";
 import gBuildersKitchenBefore from "@/assets/gallery/builders-kitchen-before.webp";
 import gBuildersKitchenAfter from "@/assets/gallery/builders-kitchen-after.webp";
 import gKitchenDinerBefore from "@/assets/gallery/kitchen-diner-before.webp";
@@ -754,6 +755,7 @@ export const SERVICES: Service[] = [
       "We look after gardens in Wellington, Taunton, Rockwell Green, Milverton, Bishops Lydeard, Trull, Creech St Michael and nearby villages.",
     ],
     icon: Leaf,
+    image: gardenImage,
     priceFrom: "£25/hour",
     features: [
       "Lawn mowing and edging",
