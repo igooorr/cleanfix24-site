@@ -16,7 +16,11 @@ const ServiceCard = ({ service }: { service: Service }) => (
           {service.title}
         </Link>
       </h3>
-      <p className="text-muted-foreground mb-6">{service.short}</p>
+      <p className="text-muted-foreground mb-4">{service.short}</p>
+      {service.priceFrom && (
+        <p className="mb-6 font-semibold text-primary">From {service.priceFrom}</p>
+      )}
+      {!service.priceFrom && <div className="mb-2" />}
       <Button asChild className="w-full mt-auto bg-primary hover:bg-primary/90">
         <Link to={servicePath(service)}>
           Learn More <ArrowRight size={16} />

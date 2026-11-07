@@ -4,6 +4,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ServiceCard from "@/components/ServiceCard";
+import TrustBar from "@/components/TrustBar";
 import { Button } from "@/components/ui/button";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { CATEGORIES, getService, servicePath, servicesIn } from "@/lib/services";
@@ -34,6 +35,16 @@ const ServiceDetail = () => {
       serviceType: service.title,
       url: canonicalUrl(servicePath(service)),
       areaServed: ["Wellington", "Taunton", "Somerset", "Devon"],
+      ...(service.priceFrom
+        ? {
+            offers: {
+              "@type": "Offer",
+              priceCurrency: "GBP",
+              price: service.priceFrom.replace(/[^0-9.]/g, ""),
+              unitText: "hour",
+            },
+          }
+        : {}),
       provider: { "@type": "LocalBusiness", name: SITE.name, url: SITE.url, telephone: "+44" + SITE.phoneTel.slice(1) },
     },
     {
@@ -83,6 +94,11 @@ const ServiceDetail = () => {
               <p className="text-white/80 font-medium mb-2">{category.title}</p>
               <h1 className="text-4xl md:text-5xl font-bold mb-4">{service.title}</h1>
               <p className="text-xl text-white/90 max-w-2xl">{service.short}</p>
+              {service.priceFrom && (
+                <p className="mt-4 inline-block rounded-full bg-white/15 px-4 py-1 font-semibold">
+                  From {service.priceFrom}
+                </p>
+              )}
             </div>
           </div>
           <div className="flex flex-col sm:flex-row gap-4 mt-8">
@@ -144,8 +160,10 @@ const ServiceDetail = () => {
         </div>
       </section>
 
+      <TrustBar muted />
+
       {/* Process */}
-      <section className="py-16 bg-muted/30">
+      <section className="py-16">
         <div className="container mx-auto px-4 max-w-6xl">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">How it works</h2>
           <ol className={`grid gap-6 sm:grid-cols-2 ${service.process.length > 3 ? "lg:grid-cols-4" : "lg:grid-cols-3"}`}>
@@ -162,7 +180,7 @@ const ServiceDetail = () => {
       </section>
 
       {/* FAQ */}
-      <section className="py-16">
+      <section className="py-16 bg-muted/30">
         <div className="container mx-auto px-4 max-w-3xl">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">Frequently asked questions</h2>
           <div className="space-y-4">
@@ -181,7 +199,7 @@ const ServiceDetail = () => {
 
       {/* Related */}
       {related.length > 0 && (
-        <section className="py-16 bg-muted/30">
+        <section className="py-16">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Related services</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">

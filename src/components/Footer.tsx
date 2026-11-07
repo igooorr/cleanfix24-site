@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { SITE, TEL_URL, MAILTO_URL } from "@/lib/site";
 import { SERVICES, servicePath } from "@/lib/services";
+import { AREAS, areaPath } from "@/lib/areas";
 
 const Footer = () => {
   return (
@@ -34,6 +35,18 @@ const Footer = () => {
                   Services
                 </Link>
               </li>
+              <li>
+                <Link to="/home-care" className="text-accent-foreground/80 hover:text-accent-foreground transition-colors">
+                  Home Care (owners abroad)
+                </Link>
+              </li>
+              {AREAS.map((a) => (
+                <li key={a.slug}>
+                  <Link to={areaPath(a)} className="text-accent-foreground/80 hover:text-accent-foreground transition-colors">
+                    Cleaning in {a.name}
+                  </Link>
+                </li>
+              ))}
               <li>
                 <Link to="/contact" className="text-accent-foreground/80 hover:text-accent-foreground transition-colors">
                   Contact

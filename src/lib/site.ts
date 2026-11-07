@@ -1,4 +1,4 @@
-// Single source of truth for business contact details.
+// Single source of truth for business contact details and trust claims.
 export const SITE = {
   name: "Cleanfix24",
   url: "https://cleanfix24.co.uk",
@@ -6,7 +6,23 @@ export const SITE = {
   phoneTel: "07840475060",
   whatsappNumber: "447840475060",
   email: "spihor@gmail.com",
+  owners: "Ihor and Ruslana",
 } as const;
+
+/**
+ * Only switch these to true once you actually hold the certificate/policy —
+ * the matching badges then appear everywhere on the site automatically.
+ */
+export const TRUST = {
+  dbsChecked: false,
+  insured: false,
+} as const;
+
+/**
+ * Free key from https://web3forms.com (enter the email that should receive enquiries).
+ * While empty, "Send by email" opens the visitor's email app instead.
+ */
+export const WEB3FORMS_KEY = "";
 
 export const WHATSAPP_URL = `https://wa.me/${SITE.whatsappNumber}`;
 export const TEL_URL = `tel:${SITE.phoneTel}`;

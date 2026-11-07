@@ -19,6 +19,7 @@ import {
   Building2,
   Wrench,
   Leaf,
+  BedSingle,
 } from "lucide-react";
 
 export type CategoryId = "cleaning" | "upholstery" | "exterior" | "handyman" | "specialist";
@@ -72,6 +73,8 @@ export interface Service {
   intro: string[];
   icon: LucideIcon;
   image?: string;
+  /** Shown as "From £20/hour". Leave empty for quote-only services. */
+  priceFrom?: string;
   features: string[];
   process: string[];
   faqs: Faq[];
@@ -93,6 +96,7 @@ export const SERVICES: Service[] = [
     ],
     icon: Home,
     image: heroImage,
+    priceFrom: "£20/hour",
     features: [
       "Weekly, fortnightly or monthly visits",
       "Kitchens: worktops, hob, sink, appliance fronts",
@@ -132,6 +136,7 @@ export const SERVICES: Service[] = [
       "It's ideal before or after a move, before guests arrive, after an illness, or simply when your home needs a fresh start.",
     ],
     icon: Sparkles,
+    priceFrom: "£22/hour",
     features: [
       "Kitchen degreasing, inside oven & microwave",
       "Limescale removal in bathrooms",
@@ -273,6 +278,45 @@ export const SERVICES: Service[] = [
       "Cleaning for cafés, restaurants, offices and venues in Wellington & Taunton, including clean-ups after banquets, parties and events.",
   },
   {
+    slug: "holiday-let-cleaning",
+    category: "cleaning",
+    title: "Holiday Let & Airbnb Cleaning",
+    short:
+      "Changeover cleaning for holiday cottages and Airbnbs — guest-ready on time, with fresh linen and towels.",
+    intro: [
+      "Great reviews start with a spotless property. We turn your holiday let around between guests: a full clean, beds made with fresh linen, towels laid out and the little touches that make guests feel welcome.",
+      "Combine changeovers with our laundry collection service and we'll take care of your bed linen and towels too. After each visit we can send you photos and let you know about anything that needs attention — breakages, low supplies or maintenance issues.",
+    ],
+    icon: BedSingle,
+    features: [
+      "Full clean between guests",
+      "Beds made with fresh linen",
+      "Towels and welcome touches laid out",
+      "Kitchen and bathroom restocked (your supplies)",
+      "Linen and towel laundry available",
+      "Photo report and issue alerts after each visit",
+    ],
+    process: [
+      "Share your booking calendar and access details with us",
+      "We clean and prepare the property after each checkout",
+      "Linen and towels are changed and laundered",
+      "You get a photo report — the property is guest-ready",
+    ],
+    faqs: [
+      {
+        q: "Can you do same-day changeovers?",
+        a: "Yes, we can clean between a morning checkout and an afternoon check-in — just let us know your usual times.",
+      },
+      {
+        q: "Do you provide the linen?",
+        a: "We wash, dry and iron your own linen and towels through our laundry collection service.",
+      },
+    ],
+    metaTitle: "Holiday Let & Airbnb Cleaning Wellington & Taunton | Cleanfix24",
+    metaDescription:
+      "Holiday cottage and Airbnb changeover cleaning in Wellington, Taunton, Somerset & Devon. Fresh linen, towels, photo reports. Free quotes.",
+  },
+  {
     slug: "laundry-ironing-service",
     category: "cleaning",
     title: "Laundry & Ironing Collection",
@@ -280,7 +324,7 @@ export const SERVICES: Service[] = [
       "We collect your laundry, take it to be washed, ironed and folded, then bring it back ready to wear.",
     intro: [
       "Save hours every week. We collect your laundry from your door, take it to the laundry to be washed and dried, have it ironed and folded, and deliver it back to you ready to put away.",
-      "Ideal for busy families, professionals, older clients and holiday lets. We can collect on a regular schedule or as a one-off.",
+      "Ideal for busy families, professionals, older clients and holiday lets. We can collect on a regular schedule or as a one-off, and clothes are returned hung or folded — just tell us your preference.",
     ],
     icon: Shirt,
     features: [

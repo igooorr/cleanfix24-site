@@ -6,6 +6,8 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import heroImage from "@/assets/hero.webp";
 import { Link } from "react-router-dom";
 import ServiceCard from "@/components/ServiceCard";
+import TrustBar from "@/components/TrustBar";
+import HomeCareBanner from "@/components/HomeCareBanner";
 import { getService, type Service } from "@/lib/services";
 import { SITE, WHATSAPP_URL, TEL_URL } from "@/lib/site";
 
@@ -74,6 +76,8 @@ const Home = () => {
         </div>
       </section>
 
+      <TrustBar />
+
       {/* Welcome Section */}
       <section className="py-16 bg-muted/30">
         <div className="container mx-auto px-4">
@@ -104,6 +108,8 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      <HomeCareBanner />
 
       {/* Contact Section */}
       <section id="contact" className="py-16 bg-muted/30">

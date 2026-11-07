@@ -4,6 +4,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ServiceCard from "@/components/ServiceCard";
+import HomeCareBanner from "@/components/HomeCareBanner";
 import { CATEGORIES, NOT_OFFERED, servicesIn, type Category } from "@/lib/services";
 import { WHATSAPP_URL } from "@/lib/site";
 
@@ -31,7 +32,9 @@ const Services = () => {
         <ServiceSection key={category.id} category={category} muted={i % 2 === 1} />
       ))}
 
-      <section className="pb-4 pt-8">
+      <HomeCareBanner />
+
+      <section className="pb-4">
         <div className="container mx-auto px-4">
           <p className="max-w-3xl mx-auto text-center text-sm text-muted-foreground">
             Please note: {NOT_OFFERED}.
@@ -48,12 +51,12 @@ const Services = () => {
               We proudly serve Somerset and Devon, including:
             </p>
             <div className="grid md:grid-cols-3 gap-6 text-lg">
-              <div className="p-4 bg-background rounded-lg shadow-sm">
+              <Link to="/areas/wellington" className="p-4 bg-background rounded-lg shadow-sm hover:shadow-md transition-shadow">
                 <p className="font-semibold text-primary">Wellington</p>
-              </div>
-              <div className="p-4 bg-background rounded-lg shadow-sm">
+              </Link>
+              <Link to="/areas/taunton" className="p-4 bg-background rounded-lg shadow-sm hover:shadow-md transition-shadow">
                 <p className="font-semibold text-primary">Taunton</p>
-              </div>
+              </Link>
               <div className="p-4 bg-background rounded-lg shadow-sm">
                 <p className="font-semibold text-primary">Surrounding Areas</p>
               </div>

@@ -20,6 +20,12 @@ npm run lint
 ## Editing content
 
 - Phone, WhatsApp number and email: `src/lib/site.ts`
+- Trust badges: `TRUST` in `src/lib/site.ts` — set `dbsChecked` / `insured` to `true`
+  only once the certificate / policy is in hand; badges then appear site-wide
+- Email delivery of form enquiries: put a free Web3Forms access key in `WEB3FORMS_KEY`
+  (`src/lib/site.ts`). Without a key, "Send by Email" opens the visitor's email app
+- Home Care page (owners abroad): `src/pages/HomeCare.tsx`
+- Location pages (`/areas/<slug>`): `src/lib/areas.ts`
 - Services (text, features, FAQs, SEO titles): `src/lib/services.ts` —
   adding a service there automatically creates its page `/services/<slug>`,
   adds it to the services list, footer, contact form and sitemap

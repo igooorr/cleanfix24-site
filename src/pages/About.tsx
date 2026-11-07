@@ -32,7 +32,7 @@ const About = () => {
             <div className="animate-fade-in">
               <img 
                 src={heroImage} 
-                alt="Ihor and Ruslana, owners of Cleanfix24" loading="lazy" decoding="async" width={1100} height={619} 
+                alt="Professional home cleaning by Cleanfix24" loading="lazy" decoding="async" width={1100} height={619} 
                 className="rounded-2xl shadow-xl"
               />
             </div>

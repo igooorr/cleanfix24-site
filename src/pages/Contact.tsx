@@ -12,6 +12,7 @@ import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { Phone, Mail, MapPin, MessageCircle } from "lucide-react";
 import { SITE, WHATSAPP_URL, TEL_URL, MAILTO_URL } from "@/lib/site";
+import { sendViaEmail, sendViaWhatsApp } from "@/lib/enquiry";
 
 const Contact = () => {
   usePageMeta("/contact");
@@ -24,25 +25,49 @@ const Contact = () => {
     message: ""
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    // Basic validation
-    if (!formData.name || !formData.email || !formData.message) {
-      toast.error("Please fill in all required fields");
-      return;
+  const [sending, setSending] = useState(false);
+
+  const fields = () => ({
+    Name: formData.name,
+    Email: formData.email,
+    Phone: formData.phone,
+    Service: formData.service,
+    Message: formData.message,
+  });
+
+  const valid = () => {
+    if (!formData.name || !formData.message || (!formData.email && !formData.phone)) {
+      toast.error("Please add your name, a message and an email or phone number.");
+      return false;
     }
+    return true;
+  };
 
-    // Create WhatsApp message
-    const whatsappMessage = `New Contact Form Submission:\n\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nService: ${formData.service || "Not specified"}\n\nMessage:\n${formData.message}`;
-    const whatsappUrl = `${WHATSAPP_URL}?text=${encodeURIComponent(whatsappMessage)}`;
-    
-    window.open(whatsappUrl, '_blank');
-    
-    toast.success("Opening WhatsApp. Your message is prepared — click send to complete.");
+  const reset = () => setFormData({ name: "", email: "", phone: "", service: "", message: "" });
 
-    // Reset form
-    setFormData({ name: "", email: "", phone: "", service: "", message: "" });
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!valid()) return;
+    setSending(true);
+    try {
+      const result = await sendViaEmail("Website enquiry", fields(), formData.email || undefined);
+      if (result === "sent") {
+        toast.success("Thank you! We've received your message and will be in touch shortly.");
+        reset();
+      } else {
+        toast.success("Your email app is opening with the message ready — just press send.");
+      }
+    } catch {
+      toast.error("Sorry, the message couldn't be sent. Please try WhatsApp or call us.");
+    } finally {
+      setSending(false);
+    }
+  };
+
+  const handleWhatsApp = () => {
+    if (!valid()) return;
+    sendViaWhatsApp("Website enquiry", fields());
+    toast.success("Opening WhatsApp — your message is ready to send.");
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -77,7 +102,7 @@ const Contact = () => {
             {/* Contact Form */}
             <div className="animate-fade-in">
               <h2 className="text-3xl font-bold mb-6">Send Us a Message</h2>
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6" noValidate>
                 <div>
                   <Label htmlFor="name">Name *</Label>
                   <Input
@@ -92,7 +117,7 @@ const Contact = () => {
                 </div>
                 
                 <div>
-                  <Label htmlFor="email">Email *</Label>
+                  <Label htmlFor="email">Email</Label>
                   <Input
                     id="email"
                     name="email"
@@ -100,7 +125,6 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="your.email@example.com"
-                    required
                     className="mt-1"
                   />
                 </div>
@@ -150,10 +174,14 @@ const Contact = () => {
                   />
                 </div>
                 
-                <Button type="submit" size="lg" className="w-full bg-primary hover:bg-primary/90">
-                  <MessageCircle className="mr-2" size={20} />
-                  Send via WhatsApp
-                </Button>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Button type="submit" size="lg" disabled={sending} className="flex-1 bg-primary hover:bg-primary/90">
+                    <Mail size={20} /> {sending ? "Sending…" : "Send by Email"}
+                  </Button>
+                  <Button type="button" size="lg" onClick={handleWhatsApp} className="flex-1 bg-[#25D366] hover:bg-[#20BA5A] text-white">
+                    <MessageCircle size={20} /> Send via WhatsApp
+                  </Button>
+                </div>
               </form>
             </div>
 
