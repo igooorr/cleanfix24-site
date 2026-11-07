@@ -10,6 +10,7 @@ import gardenImage from "@/assets/garden.webp";
 import commercialImage from "@/assets/commercial.webp";
 import exteriorWallImage from "@/assets/exterior-wall.webp";
 import holidayLetImage from "@/assets/holiday-let.webp";
+import stainImage from "@/assets/stain-removal.webp";
 import gBuildersKitchenBefore from "@/assets/gallery/builders-kitchen-before.webp";
 import gBuildersKitchenAfter from "@/assets/gallery/builders-kitchen-after.webp";
 import gKitchenDinerBefore from "@/assets/gallery/kitchen-diner-before.webp";
@@ -582,7 +583,7 @@ export const SERVICES: Service[] = [
     ],
     icon: Droplets,
     priceFrom: "£30",
-    image: upholsteryImage,
+    image: stainImage,
     features: [
       "Coffee, tea and red wine",
       "Food, grease and sauce",
