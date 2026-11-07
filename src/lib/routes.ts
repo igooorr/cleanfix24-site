@@ -1,6 +1,7 @@
 import { SERVICES, servicePath } from "@/lib/services";
 import { AREAS, areaPath } from "@/lib/areas";
 import { SITE } from "@/lib/site";
+import { LANDINGS, landingPath } from "@/lib/landing";
 
 export interface PageMeta {
   title: string;
@@ -46,6 +47,8 @@ export function getMeta(path: string): PageMeta {
   if (service) return { title: service.metaTitle, description: service.metaDescription };
   const area = AREAS.find((a) => areaPath(a) === path);
   if (area) return { title: area.metaTitle, description: area.metaDescription };
+  const landing = LANDINGS.find((l) => landingPath(l) === path);
+  if (landing) return { title: landing.metaTitle, description: landing.metaDescription };
   return NOT_FOUND_META;
 }
 
@@ -55,5 +58,8 @@ export const ALL_PATHS: string[] = [
   ...SERVICES.map(servicePath),
   ...AREAS.map(areaPath),
 ];
+
+/** Ad landing pages: prerendered with noindex and kept out of the sitemap. */
+export const LANDING_PATHS: string[] = LANDINGS.map(landingPath);
 
 export const canonicalUrl = (path: string) => `${SITE.url}${path === "/" ? "/" : path}`;

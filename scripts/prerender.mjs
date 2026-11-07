@@ -8,7 +8,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const dist = path.join(root, "dist");
 const ssrEntry = path.join(root, "dist-ssr", "entry-server.js");
 
-const { render, ALL_PATHS, getMeta, canonicalUrl, NOT_FOUND_META } = await import(
+const { render, ALL_PATHS, LANDING_PATHS, getMeta, canonicalUrl, NOT_FOUND_META } = await import(
   pathToFileURL(ssrEntry).href
 );
 const template = fs.readFileSync(path.join(dist, "index.html"), "utf8");
@@ -36,11 +36,15 @@ function page(url, meta, { noindex = false } = {}) {
   return html;
 }
 
-for (const url of ALL_PATHS) {
+// Each page is a flat file (about.html, services/x.html) so Cloudflare Pages
+// serves it at the clean URL (/about) without a trailing-slash redirect.
+const write = (url, html) => {
   const file = url === "/" ? path.join(dist, "index.html") : path.join(dist, `${url.replace(/^\//, "")}.html`);
   fs.mkdirSync(path.dirname(file), { recursive: true });
-  fs.writeFileSync(file, page(url, getMeta(url)));
-}
+  fs.writeFileSync(file, html);
+};
+for (const url of ALL_PATHS) write(url, page(url, getMeta(url)));
+for (const url of LANDING_PATHS) write(url, page(url, getMeta(url), { noindex: true }));
 fs.writeFileSync(path.join(dist, "404.html"), page("/404", NOT_FOUND_META, { noindex: true }));
 
 const today = new Date().toISOString().slice(0, 10);
@@ -57,4 +61,4 @@ ${ALL_PATHS.map(
 fs.writeFileSync(path.join(dist, "sitemap.xml"), sitemap);
 fs.rmSync(path.join(root, "dist-ssr"), { recursive: true, force: true });
 
-console.log(`Prerendered ${ALL_PATHS.length} pages + 404.html and sitemap.xml`);
+console.log(`Prerendered ${ALL_PATHS.length} pages, ${LANDING_PATHS.length} ad landing pages + 404.html and sitemap.xml`);
