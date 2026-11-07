@@ -37,7 +37,7 @@ function page(url, meta, { noindex = false } = {}) {
 }
 
 for (const url of ALL_PATHS) {
-  const file = url === "/" ? path.join(dist, "index.html") : path.join(dist, url, "index.html");
+  const file = url === "/" ? path.join(dist, "index.html") : path.join(dist, `${url.replace(/^\//, "")}.html`);
   fs.mkdirSync(path.dirname(file), { recursive: true });
   fs.writeFileSync(file, page(url, getMeta(url)));
 }

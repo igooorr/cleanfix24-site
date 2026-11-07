@@ -5,7 +5,7 @@ export const SITE = {
   phoneDisplay: "07840 475060",
   phoneTel: "07840475060",
   whatsappNumber: "447840475060",
-  email: "spihor@gmail.com",
+  email: "info@cleanfix24.co.uk",
   owners: "Ihor and Ruslana",
 } as const;
 
