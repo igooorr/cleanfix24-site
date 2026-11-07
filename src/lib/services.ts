@@ -1,5 +1,8 @@
 import upholsteryImage from "@/assets/upholstery.webp";
-import heroImage from "@/assets/hero.webp";
+import bathroomImage from "@/assets/bathroom.webp";
+import kitchenImage from "@/assets/kitchen.webp";
+import emptyRoomImage from "@/assets/end-of-tenancy.webp";
+import mattressImage from "@/assets/mattress.webp";
 import mouldImage from "@/assets/mould.webp";
 import carImage from "@/assets/car-interior.webp";
 import carSeatBefore from "@/assets/gallery/car-seat-before.webp";
@@ -110,7 +113,7 @@ export const SERVICES: Service[] = [
       "As a family-run business, we keep things personal: you get the same friendly faces each visit, who learn how you like things done.",
     ],
     icon: Home,
-    image: heroImage,
+    image: bathroomImage,
     priceFrom: "£20/hour",
     features: [
       "Weekly, fortnightly or monthly visits",
@@ -151,6 +154,7 @@ export const SERVICES: Service[] = [
       "It's ideal before or after a move, before guests arrive, after an illness, or simply when your home needs a fresh start.",
     ],
     icon: Sparkles,
+    image: kitchenImage,
     priceFrom: "£22/hour",
     features: [
       "Kitchen degreasing, inside oven & microwave",
@@ -191,6 +195,7 @@ export const SERVICES: Service[] = [
       "We work to a detailed checklist covering every room, including kitchen appliances, bathrooms, cupboards, skirting boards and windows. We also clean between tenancies for landlords and holiday lets.",
     ],
     icon: KeyRound,
+    image: emptyRoomImage,
     features: [
       "Full kitchen clean incl. oven, hob & extractor",
       "Bathrooms descaled and sanitised",
@@ -303,6 +308,7 @@ export const SERVICES: Service[] = [
       "Combine changeovers with our laundry collection service and we'll take care of your bed linen and towels too. After each visit we can send you photos and let you know about anything that needs attention — breakages, low supplies or maintenance issues.",
     ],
     icon: BedSingle,
+    image: bathroomImage,
     features: [
       "Full clean between guests",
       "Beds made with fresh linen",
@@ -423,6 +429,7 @@ export const SERVICES: Service[] = [
       "Our mattress cleaning combines vacuuming, stain pre-treatment and deep extraction to remove stains and odours and reduce allergens.",
     ],
     icon: BedDouble,
+    image: mattressImage,
     features: [
       "Single, double, king and super king",
       "Sweat and urine stain removal",
@@ -462,6 +469,7 @@ export const SERVICES: Service[] = [
       "We identify the type of stain and fabric, choose the right treatment, and remove it as safely and completely as possible.",
     ],
     icon: Droplets,
+    image: upholsteryImage,
     features: [
       "Coffee, tea and red wine",
       "Food, grease and sauce",
