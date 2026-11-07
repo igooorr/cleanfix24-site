@@ -4,6 +4,8 @@ import kitchenImage from "@/assets/kitchen.webp";
 import emptyRoomImage from "@/assets/end-of-tenancy.webp";
 import mattressImage from "@/assets/mattress.webp";
 import patioImage from "@/assets/patio.webp";
+import handymanImage from "@/assets/handyman.webp";
+import laundryImage from "@/assets/laundry.webp";
 import gBuildersKitchenBefore from "@/assets/gallery/builders-kitchen-before.webp";
 import gBuildersKitchenAfter from "@/assets/gallery/builders-kitchen-after.webp";
 import gKitchenDinerBefore from "@/assets/gallery/kitchen-diner-before.webp";
@@ -434,6 +436,7 @@ export const SERVICES: Service[] = [
       "Collection and delivery is available in Wellington, Taunton, Rockwell Green, Milverton, Bishops Lydeard, Norton Fitzwarren and nearby villages. Ask us about other areas.",
     ],
     icon: Shirt,
+    image: laundryImage,
     priceFrom: "£18 per bag",
     features: [
       "Collection from your door",
@@ -706,6 +709,7 @@ export const SERVICES: Service[] = [
       "We do handyman jobs around Wellington, Taunton, Milverton, Wiveliscombe, Bishops Lydeard, Norton Fitzwarren and nearby villages.",
     ],
     icon: Wrench,
+    image: handymanImage,
     priceFrom: "£30/hour",
     features: [
       "Flat-pack furniture assembly",
