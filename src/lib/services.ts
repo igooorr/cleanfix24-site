@@ -407,7 +407,7 @@ export const SERVICES: Service[] = [
         a: "Wellington, Taunton and the surrounding area. Contact us to check your address.",
       },
     ],
-    metaTitle: "Laundry & Ironing Collection Service Wellington & Taunton | Cleanfix24",
+    metaTitle: "Laundry & Ironing Collection Wellington & Taunton | Cleanfix24",
     metaDescription:
       "Laundry and ironing with collection and delivery in Wellington, Taunton and surrounding areas. Washed, ironed, folded and returned to your door.",
   },
@@ -567,7 +567,7 @@ export const SERVICES: Service[] = [
         a: "No — we don't do any work at height, so roof and gutter cleaning aren't part of our services.",
       },
     ],
-    metaTitle: "Patio Cleaning & Pressure Washing Wellington & Taunton | Cleanfix24",
+    metaTitle: "Patio Cleaning & Pressure Washing Wellington & Taunton",
     metaDescription:
       "Patio cleaning and pressure washing in Wellington, Taunton, Somerset & Devon. Moss, algae and weeds removed from slabs, stone and paving.",
   },
@@ -681,7 +681,7 @@ export const SERVICES: Service[] = [
         a: "We trim hedges and shrubs that can be reached safely from the ground — we don't do work at height.",
       },
     ],
-    metaTitle: "Garden Maintenance & Lawn Mowing Wellington & Taunton | Cleanfix24",
+    metaTitle: "Garden Maintenance & Lawn Mowing Wellington & Taunton",
     metaDescription:
       "Lawn mowing, hedge trimming, weeding and garden tidy-ups in Wellington, Taunton, Somerset & Devon. One-off or regular visits.",
   },

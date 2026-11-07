@@ -10,9 +10,9 @@ export interface PageMeta {
 
 const STATIC_META: Record<string, PageMeta> = {
   "/": {
-    title: "Cleanfix24 - Professional Cleaning Services | Wellington & Taunton, Somerset",
+    title: "Cleaners in Wellington & Taunton, Somerset | Cleanfix24",
     description:
-      "Family-run cleaning in Wellington, Taunton, Somerset & Devon: regular, deep and end of tenancy cleaning, sofa & mattress cleaning, stain removal, holiday lets, home care for owners abroad, laundry collection, handyman and garden services. Free quotes.",
+      "Family-run cleaners in Wellington & Taunton: regular, deep and end of tenancy cleaning, sofas, mattresses, patios and more. Clear prices, free quotes.",
   },
   "/about": {
     title: "About Us | Cleanfix24 - Family-Run Cleaners in Somerset",
@@ -22,12 +22,12 @@ const STATIC_META: Record<string, PageMeta> = {
   "/services": {
     title: "Our Cleaning Services | Cleanfix24 - Somerset & Devon",
     description:
-      "House, deep, end of tenancy, after builders and commercial cleaning, sofa & mattress cleaning, stain removal, patio and wall cleaning, laundry collection, handyman and garden work.",
+      "House, deep, end of tenancy and after builders cleaning, sofas, mattresses, patios, laundry, handyman and garden work in Wellington, Taunton & Somerset.",
   },
   "/home-care": {
-    title: "Home Care for Owners Abroad | Property Checks Somerset | Cleanfix24",
+    title: "Home Care & Property Checks for Owners Away | Cleanfix24",
     description:
-      "Vacant property checks and home care while you're away: regular inspections, mail collection, ventilation, trades coordination and pre-arrival cleaning in Wellington & Taunton.",
+      "Property checks while you're away: regular inspections, post collection, airing, trades and a clean before you return. Wellington, Taunton & Somerset.",
   },
   "/contact": {
     title: "Contact Us | Cleanfix24 - Free Quotes in Somerset & Devon",
