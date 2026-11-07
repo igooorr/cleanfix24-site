@@ -42,7 +42,7 @@ const AreaPage = () => {
       <section className="bg-gradient-to-br from-primary to-secondary text-white py-16 md:py-20">
         <div className="container mx-auto px-4 max-w-4xl text-center">
           <p className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-1 text-sm font-medium mb-6">
-            <MapPin size={16} aria-hidden="true" /> {area.name}, Somerset
+            <MapPin size={16} aria-hidden="true" /> {area.name}, {area.county}
           </p>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Cleaning Services in {area.name}</h1>
           <p className="text-xl text-white/90">

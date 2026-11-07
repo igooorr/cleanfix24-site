@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ServiceCard from "@/components/ServiceCard";
 import TrustBar from "@/components/TrustBar";
+import CoverageBlock from "@/components/CoverageBlock";
 import { Button } from "@/components/ui/button";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { CATEGORIES, getService, servicePath, servicesIn } from "@/lib/services";
@@ -41,7 +42,7 @@ const ServiceDetail = () => {
               "@type": "Offer",
               priceCurrency: "GBP",
               price: service.priceFrom.replace(/[^0-9.]/g, ""),
-              unitText: "hour",
+              ...(service.priceFrom.includes("/hour") ? { unitText: "hour" } : {}),
             },
           }
         : {}),
@@ -98,6 +99,9 @@ const ServiceDetail = () => {
                 <p className="mt-4 inline-block rounded-full bg-white/15 px-4 py-1 font-semibold">
                   From {service.priceFrom}
                 </p>
+              )}
+              {service.priceFrom && (
+                <p className="mt-2 text-sm text-white/80">Guide price — we always confirm a clear quote before we start.</p>
               )}
             </div>
           </div>
@@ -250,6 +254,8 @@ const ServiceDetail = () => {
           </div>
         </section>
       )}
+
+      <CoverageBlock muted />
 
       {/* CTA */}
       <section className="py-16">

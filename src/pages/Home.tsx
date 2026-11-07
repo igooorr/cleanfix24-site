@@ -11,6 +11,7 @@ import HomeCareBanner from "@/components/HomeCareBanner";
 import { getService, type Service } from "@/lib/services";
 import { SITE, WHATSAPP_URL, TEL_URL } from "@/lib/site";
 import QuickQuoteForm from "@/components/QuickQuoteForm";
+import CoverageBlock from "@/components/CoverageBlock";
 import ruslanaImage from "@/assets/ruslana.webp";
 import ihorImage from "@/assets/ihor.webp";
 import { ClipboardList, MessageCircle, Phone, PoundSterling, Sparkles } from "lucide-react";
@@ -175,6 +176,8 @@ const Home = () => {
       </section>
 
       <HomeCareBanner />
+
+      <CoverageBlock />
 
       {/* Contact Section */}
       <section id="contact" className="py-16 bg-gradient-to-br from-primary to-secondary scroll-mt-20">

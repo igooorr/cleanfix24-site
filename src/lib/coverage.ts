@@ -1,0 +1,31 @@
+/** Towns and villages we cover — roughly 20 miles around Wellington and Taunton. */
+export const COVERAGE = {
+  somerset: [
+    "Wellington",
+    "Taunton",
+    "Bridgwater",
+    "North Petherton",
+    "Wiveliscombe",
+    "Milverton",
+    "Bishops Lydeard",
+    "Norton Fitzwarren",
+    "Creech St Michael",
+    "Ilminster",
+    "Chard",
+    "Langport",
+    "Williton",
+    "Watchet",
+    "Dulverton",
+  ],
+  devon: [
+    "Tiverton",
+    "Cullompton",
+    "Uffculme",
+    "Willand",
+    "Culmstock",
+    "Hemyock",
+    "Sampford Peverell",
+    "Bampton",
+    "Honiton",
+  ],
+};

@@ -105,7 +105,7 @@ export interface Service {
   intro: string[];
   icon: LucideIcon;
   image?: string;
-  /** Shown as "From £20/hour". Leave empty for quote-only services. */
+  /** Guide "from" price, shown as "From £20/hour". Final price is always quoted first. */
   priceFrom?: string;
   features: string[];
   process: string[];
@@ -125,8 +125,9 @@ export const SERVICES: Service[] = [
     short:
       "Weekly, fortnightly or monthly cleaning by the same trusted team, so your home always stays on top.",
     intro: [
-      "Life is busy. Our regular cleaning service keeps your home fresh and tidy without you having to lift a finger. You choose how often — weekly, fortnightly or monthly — and we work to a checklist that suits your home.",
-      "As a family-run business, we keep things personal: you get the same friendly faces each visit, who learn how you like things done.",
+      "Come home to a clean house without giving up your evenings or weekends. We clean weekly, fortnightly or monthly, working to a checklist built around your home and your priorities — kitchen, bathrooms, dusting, floors and the jobs you never get round to.",
+      "You get the same friendly faces every visit: Ihor, Ruslana or a member of our small team, who learn how you like things done. We bring all products and equipment, and you can leave us a key so we clean while you're at work.",
+      "We clean homes across Wellington and Taunton and the surrounding towns and villages, including Rockwell Green, Milverton, Wiveliscombe, Bishops Lydeard, Norton Fitzwarren, Creech St Michael and over the border in Culmstock, Uffculme and Cullompton.",
     ],
     icon: Home,
     image: bathroomImage,
@@ -147,6 +148,14 @@ export const SERVICES: Service[] = [
     ],
     faqs: [
       {
+        q: "How much does a regular cleaner cost?",
+        a: "Our regular cleaning starts from £20 per hour. Most homes need 2–3 hours per visit; we'll suggest the right time after a quick chat or a look at your home, so you know the cost before we start.",
+      },
+      {
+        q: "Is there a minimum visit length?",
+        a: "We usually book a minimum of 2 hours per visit so there's enough time to make a real difference.",
+      },
+      {
         q: "Do I need to provide cleaning products?",
         a: "No, we bring our own products and equipment. If you prefer us to use specific products, just let us know.",
       },
@@ -160,7 +169,7 @@ export const SERVICES: Service[] = [
     ],
     metaTitle: "Regular House Cleaning in Wellington & Taunton | Cleanfix24",
     metaDescription:
-      "Weekly, fortnightly or monthly house cleaning across Wellington, Taunton, Somerset & Devon. Family-run, reliable and flexible. Get a free quote.",
+      "Weekly or fortnightly house cleaning in Wellington, Taunton & nearby villages from £20/hour. Same friendly local cleaners every visit. Free quote.",
   },
   {
     slug: "deep-cleaning",
@@ -169,8 +178,9 @@ export const SERVICES: Service[] = [
     short:
       "A thorough top-to-bottom spring clean that reaches the places everyday cleaning misses.",
     intro: [
-      "A deep clean (also called a general or spring clean) goes far beyond a regular tidy-up. We clean inside, behind and underneath — skirting boards, door frames, light switches, inside cupboards and appliances, limescale and grease build-up.",
-      "It's ideal before or after a move, before guests arrive, after an illness, or simply when your home needs a fresh start.",
+      "A deep clean is a top-to-bottom reset for your home. We go inside, behind and underneath: skirting boards, door frames, light switches, kitchen cupboards, the oven, limescale on taps and tiles, and the grease and dust that everyday cleaning leaves behind.",
+      "It's ideal for a spring clean, before guests or a family celebration, after illness, before putting a house on the market, or as a first visit before regular cleaning starts.",
+      "We carry out deep cleans in Wellington, Taunton, Bridgwater, Wiveliscombe, Ilminster, Langport and the villages in between, as well as Tiverton and Cullompton in Mid Devon.",
     ],
     icon: Sparkles,
     image: kitchenImage,
@@ -191,6 +201,14 @@ export const SERVICES: Service[] = [
     ],
     faqs: [
       {
+        q: "How much does a deep clean cost?",
+        a: "Deep cleaning starts from £22 per hour. A typical 2–3 bedroom house takes one or two of us 5–8 hours depending on its condition. Send us a few photos and we'll give you a clear fixed quote.",
+      },
+      {
+        q: "Is oven cleaning included?",
+        a: "Yes — the oven, hob and extractor are part of our deep clean.",
+      },
+      {
         q: "How long does a deep clean take?",
         a: "It depends on the size and condition of the property. Most homes take between half a day and a full day.",
       },
@@ -205,7 +223,7 @@ export const SERVICES: Service[] = [
     ],
     metaTitle: "Deep Cleaning & Spring Cleaning in Somerset | Cleanfix24",
     metaDescription:
-      "Top-to-bottom deep cleaning for homes in Wellington, Taunton, Somerset & Devon. Kitchens, bathrooms, limescale, grease and more. Free quotes.",
+      "Deep cleaning and spring cleans in Wellington, Taunton & Somerset from £22/hour: kitchens, ovens, bathrooms, skirting and limescale. Free quote.",
   },
   {
     slug: "end-of-tenancy-cleaning",
@@ -214,10 +232,12 @@ export const SERVICES: Service[] = [
     short:
       "Move-out cleaning for tenants, landlords and letting agents — ready for inspection and the next tenant.",
     intro: [
-      "Moving out is stressful enough. Our end of tenancy clean is designed to get the property ready for the inventory check, helping tenants get their deposit back and landlords re-let faster.",
-      "We work to a detailed checklist covering every room, including kitchen appliances, bathrooms, cupboards, skirting boards and windows. We also clean between tenancies for landlords and holiday lets.",
+      "Moving out is stressful enough without worrying about the deposit. Our end of tenancy clean gets the property ready for the check-out inspection, using a detailed room-by-room checklist that matches what letting agents look for.",
+      "We clean the oven, hob and extractor, descale bathrooms, wipe inside every cupboard and drawer, clean skirting boards, doors, switches and interior windows, and finish the floors. Sofa, mattress and carpet-area spot cleaning can be added in the same visit.",
+      "We work for tenants, landlords and letting agents in Taunton, Wellington, Bridgwater, Tiverton, Cullompton, Chard, Ilminster and the surrounding villages, and can arrange key collection with your agent.",
     ],
     icon: KeyRound,
+    priceFrom: "£160",
     image: emptyRoomImage,
     features: [
       "Full kitchen clean incl. oven, hob & extractor",
@@ -234,6 +254,14 @@ export const SERVICES: Service[] = [
     ],
     faqs: [
       {
+        q: "How much does an end of tenancy clean cost?",
+        a: "Prices start from £160 for a one-bedroom flat. Larger homes and properties that need extra attention cost more — send us the number of bedrooms and a few photos and we'll give you a fixed price.",
+      },
+      {
+        q: "How long does it take?",
+        a: "Most flats take 4–6 hours and family houses a full day. We often send two people to finish faster.",
+      },
+      {
         q: "Do you work with landlords and letting agents?",
         a: "Yes. We clean between tenancies and can arrange key collection with agents.",
       },
@@ -249,7 +277,7 @@ export const SERVICES: Service[] = [
     ],
     metaTitle: "End of Tenancy Cleaning Wellington & Taunton | Cleanfix24",
     metaDescription:
-      "End of tenancy and move-out cleaning for tenants, landlords and agents in Somerset & Devon. Detailed checklist, inspection-ready results.",
+      "End of tenancy cleaning in Taunton, Wellington & nearby from £160. Detailed checklist for tenants, landlords and agents. Fixed-price quote.",
   },
   {
     slug: "after-builders-cleaning",
@@ -258,10 +286,12 @@ export const SERVICES: Service[] = [
     short:
       "Post-construction and renovation cleaning that removes fine dust, paint splashes and debris.",
     intro: [
-      "Building work leaves behind a layer of fine dust that settles everywhere — on surfaces, in cupboards, on window frames and floors. Our after builders clean gets your home or premises ready to live in or use.",
-      "We remove dust from every surface, clean windows and frames, take off paint and plaster splashes where safe, and leave floors spotless.",
+      "Building work leaves fine dust everywhere — on every surface, inside cupboards, on window frames, light fittings and floors — and it keeps coming back if it isn't removed properly. Our after builders clean gets your home or premises ready to live in or hand over.",
+      "We vacuum and wipe down every surface top to bottom, clean windows and frames, remove paint and plaster splashes where it's safe to do so, clean new kitchens and bathrooms, and leave floors spotless.",
+      "We clean after extensions, renovations and new builds in Taunton, Wellington, Bridgwater, North Petherton, Wiveliscombe, Tiverton and the surrounding area, for homeowners, builders and developers.",
     ],
     icon: HardHat,
+    priceFrom: "£22/hour",
     image: afterBuildersImage,
     features: [
       "Fine dust removal from all surfaces",
@@ -279,6 +309,14 @@ export const SERVICES: Service[] = [
     ],
     faqs: [
       {
+        q: "How much does an after builders clean cost?",
+        a: "After builders cleaning starts from £22 per hour. The time depends on the size of the property and how much dust is left — send us photos and we'll give you a fixed quote.",
+      },
+      {
+        q: "When should I book it?",
+        a: "Once the trades have finished and the property is safe to work in — ideally after the last coat of paint is dry.",
+      },
+      {
         q: "Do you remove building rubbish?",
         a: "We clean the property; heavy building waste should be removed by the builders before we start.",
       },
@@ -291,7 +329,7 @@ export const SERVICES: Service[] = [
     ],
     metaTitle: "After Builders Cleaning in Somerset & Devon | Cleanfix24",
     metaDescription:
-      "Post-construction and renovation cleaning in Wellington, Taunton, Somerset & Devon. Dust, paint splashes and debris removed. Free quotes.",
+      "After builders and post-renovation cleaning in Taunton, Wellington & Somerset from £22/hour. Dust, paint splashes and new kitchens cleaned.",
   },
   {
     slug: "commercial-event-cleaning",
@@ -300,10 +338,12 @@ export const SERVICES: Service[] = [
     short:
       "Cleaning for cafés, restaurants, offices and venues — including after banquets, parties and events.",
     intro: [
-      "We help local businesses stay clean and welcoming. From regular cleaning for small offices and shops to a full clean-up after a banquet, wedding or party in a café, restaurant or hall.",
-      "After an event we take care of tables, chairs, floors, kitchens and toilets so the venue is ready for business again — often first thing the next morning.",
+      "We help local businesses stay clean and welcoming — small offices, shops, salons, cafés, village halls and holiday parks — with regular cleaning or one-off visits.",
+      "After a wedding, party, banquet or community event we take care of tables, chairs, floors, kitchens and toilets so the venue is ready again, often first thing the next morning. We can work early mornings, evenings and weekends.",
+      "We cover businesses and venues in Taunton, Wellington, Bridgwater, Wiveliscombe, Langport, Ilminster and the villages across Somerset and Mid Devon.",
     ],
     icon: UtensilsCrossed,
+    priceFrom: "£22/hour",
     features: [
       "After banquets, parties and private events",
       "Cafés, restaurants, pubs and halls",
@@ -320,6 +360,10 @@ export const SERVICES: Service[] = [
     ],
     faqs: [
       {
+        q: "How much does commercial cleaning cost?",
+        a: "Commercial and event cleaning starts from £22 per hour. For regular contracts we agree a fixed monthly price after a short visit to your premises.",
+      },
+      {
         q: "Can you clean outside opening hours?",
         a: "Yes, we can work early mornings, evenings or straight after your event.",
       },
@@ -330,7 +374,7 @@ export const SERVICES: Service[] = [
     ],
     metaTitle: "Commercial & After-Event Cleaning Somerset | Cleanfix24",
     metaDescription:
-      "Cleaning for cafés, restaurants, offices and venues in Wellington & Taunton, including clean-ups after banquets, parties and events.",
+      "Office, shop and after-event cleaning in Taunton, Wellington & Somerset from £22/hour. Early, late and weekend cleans. Free quote.",
   },
   {
     slug: "holiday-let-cleaning",
@@ -339,10 +383,12 @@ export const SERVICES: Service[] = [
     short:
       "Changeover cleaning for holiday cottages and Airbnbs — guest-ready on time, with fresh linen and towels.",
     intro: [
-      "Great reviews start with a spotless property. We turn your holiday let around between guests: a full clean, beds made with fresh linen, towels laid out and the little touches that make guests feel welcome.",
-      "Combine changeovers with our laundry collection service and we'll take care of your bed linen and towels too. After each visit we can send you photos and let you know about anything that needs attention — breakages, low supplies or maintenance issues.",
+      "Great reviews start with a spotless property. We turn your holiday let or Airbnb around between guests: a full clean, beds made with fresh linen, towels laid out and the small touches that make guests feel welcome.",
+      "Combine changeovers with our laundry service and we'll take care of bed linen and towels too. After each visit we can send photos and let you know about breakages, low supplies or anything that needs attention.",
+      "We look after holiday lets in and around Wellington, Taunton, Wiveliscombe, Dulverton, Williton, Watchet and the edge of Exmoor, as well as Mid Devon villages around Tiverton and Bampton.",
     ],
     icon: BedSingle,
+    priceFrom: "£45 per changeover",
     image: bathroomImage,
     features: [
       "Full clean between guests",
@@ -360,6 +406,10 @@ export const SERVICES: Service[] = [
     ],
     faqs: [
       {
+        q: "How much does a holiday let changeover cost?",
+        a: "Changeovers start from £45 for a small one-bedroom property. Larger homes and linen service are priced per property — tell us the number of bedrooms and we'll send a fixed price.",
+      },
+      {
         q: "Can you do same-day changeovers?",
         a: "Yes, we can clean between a morning checkout and an afternoon check-in — just let us know your usual times.",
       },
@@ -370,7 +420,7 @@ export const SERVICES: Service[] = [
     ],
     metaTitle: "Holiday Let & Airbnb Cleaning Wellington & Taunton | Cleanfix24",
     metaDescription:
-      "Holiday cottage and Airbnb changeover cleaning in Wellington, Taunton, Somerset & Devon. Fresh linen, towels, photo reports. Free quotes.",
+      "Holiday let and Airbnb changeover cleaning near Wellington, Taunton & Exmoor from £45. Linen, photos after each visit. Free quote.",
   },
   {
     slug: "laundry-ironing-service",
@@ -379,10 +429,12 @@ export const SERVICES: Service[] = [
     short:
       "We collect your laundry, take it to be washed, ironed and folded, then bring it back ready to wear.",
     intro: [
-      "Save hours every week. We collect your laundry from your door, take it to the laundry to be washed and dried, have it ironed and folded, and deliver it back to you ready to put away.",
-      "Ideal for busy families, professionals, older clients and holiday lets. We can collect on a regular schedule or as a one-off, and clothes are returned hung or folded — just tell us your preference.",
+      "Get your evenings back. We collect your laundry from your door, have it washed, dried, ironed and folded, and deliver it back ready to put away.",
+      "It's ideal for busy families, professionals, older clients and holiday lets. We can collect on a regular day each week or as a one-off, and return clothes hung or folded — just tell us your preference.",
+      "Collection and delivery is available in Wellington, Taunton, Rockwell Green, Milverton, Bishops Lydeard, Norton Fitzwarren and nearby villages. Ask us about other areas.",
     ],
     icon: Shirt,
+    priceFrom: "£18 per bag",
     features: [
       "Collection from your door",
       "Washing and drying",
@@ -399,6 +451,10 @@ export const SERVICES: Service[] = [
     ],
     faqs: [
       {
+        q: "How much does the laundry service cost?",
+        a: "Wash, dry and fold starts from £18 per standard bag. Ironing is priced per item or per bag — ask us for the current price list.",
+      },
+      {
         q: "How often can you collect?",
         a: "As often as you need — weekly, fortnightly or one-off collections.",
       },
@@ -409,7 +465,7 @@ export const SERVICES: Service[] = [
     ],
     metaTitle: "Laundry & Ironing Collection Wellington & Taunton | Cleanfix24",
     metaDescription:
-      "Laundry and ironing with collection and delivery in Wellington, Taunton and surrounding areas. Washed, ironed, folded and returned to your door.",
+      "Laundry and ironing collection in Wellington, Taunton & nearby villages from £18 per bag. Collected, washed, ironed and delivered back.",
   },
 
   // ---------- Upholstery & stains ----------
@@ -420,10 +476,12 @@ export const SERVICES: Service[] = [
     short:
       "Deep extraction cleaning for sofas, armchairs and soft furniture — lifting dirt, stains and odours.",
     intro: [
-      "Your sofa collects everyday dirt, body oils, spills, pet hair and odours that a vacuum can't reach. We use professional hot-water extraction to clean deep inside the fabric and rinse the dirt away.",
-      "We check the fabric and its care label first, pre-treat stains and heavy areas, then extract. The result is fresher, brighter furniture that's dry within hours.",
+      "Your sofa collects everyday dirt, body oils, spills, pet hair and odours that a vacuum can't reach. We use professional hot-water extraction to clean deep inside the fabric and rinse the dirt away — in your own home.",
+      "We check the fabric and its care label first, pre-treat stains and heavy areas, then extract. The result is fresher, brighter furniture that's usually dry within a few hours.",
+      "We clean sofas, armchairs and dining chairs across Taunton, Wellington, Bridgwater, Tiverton, Cullompton, Wiveliscombe, Chard and the surrounding villages.",
     ],
     icon: Sofa,
+    priceFrom: "£50",
     image: upholsteryImage,
     features: [
       "Sofas, corner sofas & sofa beds",
@@ -441,6 +499,10 @@ export const SERVICES: Service[] = [
     ],
     faqs: [
       {
+        q: "How much does sofa cleaning cost?",
+        a: "Prices start from £50 for a two-seater sofa or two armchairs. Three-seaters, corner sofas and heavy staining cost more — send us a photo on WhatsApp for a quick, clear price.",
+      },
+      {
         q: "How long does it take to dry?",
         a: "Usually between 4 and 8 hours depending on the fabric and ventilation.",
       },
@@ -451,7 +513,7 @@ export const SERVICES: Service[] = [
     ],
     metaTitle: "Sofa & Upholstery Cleaning Wellington & Taunton | Cleanfix24",
     metaDescription:
-      "Professional sofa, armchair and upholstery cleaning in Wellington, Taunton, Somerset & Devon. Deep extraction, stain removal, fast drying.",
+      "Sofa and upholstery cleaning at home in Taunton, Wellington & nearby from £50. Hot-water extraction, stains and odours lifted, fast drying.",
   },
   {
     slug: "mattress-cleaning",
@@ -460,10 +522,12 @@ export const SERVICES: Service[] = [
     short:
       "Remove stains, sweat, dust mites and odours from your mattress for a fresher, healthier sleep.",
     intro: [
-      "We spend a third of our lives in bed, and mattresses absorb sweat, skin cells, dust mites and the occasional accident. Turning or covering a mattress doesn't remove what's inside.",
-      "Our mattress cleaning combines vacuuming, stain pre-treatment and deep extraction to remove stains and odours and reduce allergens.",
+      "We spend a third of our lives in bed, and mattresses soak up sweat, skin cells, dust mites and the occasional accident. Turning or covering a mattress doesn't remove what's inside.",
+      "Our mattress cleaning combines a thorough vacuum, stain and odour pre-treatment and deep hot-water extraction to lift stains, freshen the mattress and reduce allergens.",
+      "We clean mattresses for families, landlords and holiday lets in Wellington, Taunton, Bridgwater, Tiverton, Cullompton and the villages around them.",
     ],
     icon: BedDouble,
+    priceFrom: "£35",
     image: mattressImage,
     features: [
       "Single, double, king and super king",
@@ -481,6 +545,10 @@ export const SERVICES: Service[] = [
     ],
     faqs: [
       {
+        q: "How much does mattress cleaning cost?",
+        a: "From £35 for a single mattress. Doubles, kings and both sides cost a little more — and there's a discount when you book several mattresses or add a sofa.",
+      },
+      {
         q: "When can I sleep on it again?",
         a: "We recommend leaving it to dry for a few hours — usually it's ready by the evening.",
       },
@@ -491,7 +559,7 @@ export const SERVICES: Service[] = [
     ],
     metaTitle: "Mattress Cleaning in Wellington & Taunton | Cleanfix24",
     metaDescription:
-      "Professional mattress cleaning in Somerset & Devon. Removes stains, sweat, dust mites and odours. Ideal for homes and holiday lets.",
+      "Mattress cleaning in Wellington, Taunton & Somerset from £35. Removes stains, sweat, dust mites and odours. Ideal for homes and holiday lets.",
   },
   {
     slug: "stain-removal",
@@ -500,10 +568,12 @@ export const SERVICES: Service[] = [
     short:
       "Specialist treatment for stubborn stains on upholstery and mattresses — food, drink, pets, blood and more.",
     intro: [
-      "Different stains need different treatments. Coffee, red wine, blood, make-up, ink and pet accidents all react differently — and the wrong product can set a stain permanently.",
-      "We identify the type of stain and fabric, choose the right treatment, and remove it as safely and completely as possible.",
+      "Different stains need different treatments. Coffee, red wine, blood, make-up, ink and pet accidents all react differently — and the wrong product can set a stain for good.",
+      "We identify the stain and the fabric, choose the right treatment, and remove it as safely and completely as possible from sofas, chairs, mattresses and rugs.",
+      "We treat stains in homes across Taunton, Wellington and the surrounding towns and villages, often on the same visit as a sofa or mattress clean.",
     ],
     icon: Droplets,
+    priceFrom: "£30",
     image: upholsteryImage,
     features: [
       "Coffee, tea and red wine",
@@ -521,13 +591,17 @@ export const SERVICES: Service[] = [
     ],
     faqs: [
       {
+        q: "How much does stain removal cost?",
+        a: "Spot stain removal starts from £30. If the whole piece of furniture needs cleaning, we'll price it as a sofa or mattress clean instead.",
+      },
+      {
         q: "What should I do straight after a spill?",
         a: "Blot (don't rub) with a clean white cloth and avoid household chemicals — then contact us as soon as possible.",
       },
     ],
     metaTitle: "Stain Removal for Sofas & Mattresses Somerset | Cleanfix24",
     metaDescription:
-      "Specialist stain removal for sofas, upholstery and mattresses in Wellington, Taunton, Somerset & Devon. Wine, coffee, pet, blood and more.",
+      "Professional stain removal for sofas, mattresses and rugs in Taunton, Wellington & Somerset from £30. Wine, coffee, pet and make-up stains.",
   },
 
   // ---------- Exterior ----------
@@ -538,10 +612,12 @@ export const SERVICES: Service[] = [
     short:
       "Pressure washing for patios and paths — removing moss, algae, weeds and built-up dirt.",
     intro: [
-      "Over time patios turn green and slippery with moss, algae and dirt. Our pressure washing brings slabs, stone and block paving back to their original colour and makes them safer to walk on.",
-      "We clear weeds from the joints, wash the surface and rinse everything away, leaving your outdoor space ready to enjoy.",
+      "Over time patios turn green and slippery with moss, algae and dirt. Our pressure washing brings slabs, natural stone and block paving back to their original colour and makes them safer to walk on.",
+      "We clear weeds from the joints, wash the whole surface and rinse everything away, leaving your outdoor space ready to enjoy. Paths, steps and small driveways can be done at the same time.",
+      "We clean patios in Wellington, Taunton, Bridgwater, Wiveliscombe, Milverton, Ilminster, Langport, Tiverton, Cullompton and the villages in between.",
     ],
     icon: Fence,
+    priceFrom: "£80",
     image: patioImage,
     features: [
       "Pressure washing",
@@ -559,6 +635,10 @@ export const SERVICES: Service[] = [
     ],
     faqs: [
       {
+        q: "How much does patio cleaning cost?",
+        a: "Patio cleaning starts from £80 for a small patio, and is usually about £3 per square metre for larger areas. Send us a photo and the rough size for a fixed price.",
+      },
+      {
         q: "Do you need water and power?",
         a: "Yes, we need access to an outside tap and a power socket.",
       },
@@ -569,7 +649,7 @@ export const SERVICES: Service[] = [
     ],
     metaTitle: "Patio Cleaning & Pressure Washing Wellington & Taunton",
     metaDescription:
-      "Patio cleaning and pressure washing in Wellington, Taunton, Somerset & Devon. Moss, algae and weeds removed from slabs, stone and paving.",
+      "Patio cleaning and pressure washing in Wellington, Taunton & Somerset from £80. Moss, algae and weeds removed from slabs, stone and paving.",
   },
   {
     slug: "exterior-wall-cleaning",
@@ -578,10 +658,12 @@ export const SERVICES: Service[] = [
     short:
       "Cleaning the outside walls of your home — removing green algae, dirt and staining.",
     intro: [
-      "Green algae, black streaks and dirt make a house look older than it is. We clean exterior walls to refresh the look of your property without repainting.",
-      "We choose the right method for your wall type, from gentle washing for render and painted surfaces to pressure washing for brick and stone.",
+      "Green algae, black streaks and dirt make a house look older than it is. We clean exterior walls to refresh your home's appearance without repainting.",
+      "We choose the right method for your wall — gentle low-pressure washing for render and painted surfaces, pressure washing for brick and stone — and work only from ground level for safety.",
+      "We clean walls on houses and bungalows in Taunton, Wellington, Bridgwater, Tiverton and the surrounding towns and villages.",
     ],
     icon: Building2,
+    priceFrom: "£120",
     image: patioImage,
     features: [
       "Render and painted walls",
@@ -598,13 +680,17 @@ export const SERVICES: Service[] = [
     ],
     faqs: [
       {
+        q: "How much does wall cleaning cost?",
+        a: "Exterior wall cleaning starts from £120 for a small area. Every house is different, so send us photos for a fixed quote.",
+      },
+      {
         q: "How high can you clean?",
         a: "We clean walls that can be reached safely from ground level. Send a photo and we'll confirm.",
       },
     ],
     metaTitle: "Exterior Wall & Render Cleaning Somerset | Cleanfix24",
     metaDescription:
-      "Exterior wall cleaning in Wellington, Taunton, Somerset & Devon. Green algae and dirt removed from render, brick and stone walls.",
+      "Exterior wall and render cleaning in Taunton, Wellington & Somerset from £120. Algae and black streaks removed from ground level.",
   },
 
   // ---------- Handyman & garden ----------
@@ -615,10 +701,12 @@ export const SERVICES: Service[] = [
     short:
       "Furniture assembly, small repairs and odd jobs around the house — the little things on your to-do list.",
     intro: [
-      "Every home has a list of small jobs that never seem to get done. We can take care of them for you — from assembling flat-pack furniture to fixing a loose handle or putting up shelves.",
+      "Every home has a list of small jobs that never get done. We take care of them — assembling flat-pack furniture, putting up shelves, curtain rails and pictures, fixing loose handles, sealing around baths and small repairs.",
       "It's a handy add-on to a clean, too: ideal for landlords between tenancies, people moving home, or anyone who simply doesn't have the time.",
+      "We do handyman jobs around Wellington, Taunton, Milverton, Wiveliscombe, Bishops Lydeard, Norton Fitzwarren and nearby villages.",
     ],
     icon: Wrench,
+    priceFrom: "£30/hour",
     features: [
       "Flat-pack furniture assembly",
       "Small repairs around the home",
@@ -634,6 +722,10 @@ export const SERVICES: Service[] = [
     ],
     faqs: [
       {
+        q: "How much does a handyman cost?",
+        a: "From £30 per hour, with a one-hour minimum. Send us a list of jobs and we'll tell you roughly how long they'll take.",
+      },
+      {
         q: "Do you do work at height, such as gutters or roofs?",
         a: "No — we only take on jobs that can be done safely from the ground or a small step.",
       },
@@ -644,7 +736,7 @@ export const SERVICES: Service[] = [
     ],
     metaTitle: "Handyman Services Wellington & Taunton | Cleanfix24",
     metaDescription:
-      "Furniture assembly, small repairs, shelves, sealant and odd jobs in Wellington, Taunton, Somerset & Devon. Friendly local handyman service.",
+      "Handyman services in Wellington, Taunton & nearby villages from £30/hour: flat-pack assembly, shelves, curtain rails and small repairs.",
   },
   {
     slug: "garden-maintenance",
@@ -653,10 +745,12 @@ export const SERVICES: Service[] = [
     short:
       "Lawn mowing, hedge and shrub trimming, weeding and garden tidy-ups — one-off or regular.",
     intro: [
-      "Keep your garden neat without spending your weekends on it. We mow lawns, trim hedges and shrubs, pull weeds and give overgrown gardens a proper tidy-up.",
-      "Book a one-off visit — for example before selling or letting a property — or regular visits through the growing season.",
+      "Keep your garden neat without spending your weekends on it. We mow lawns, trim hedges and shrubs, pull weeds, clear leaves and give overgrown gardens a proper tidy-up.",
+      "Book a one-off visit — for example before selling or letting a property — or regular visits through the growing season. We take the green waste away on request.",
+      "We look after gardens in Wellington, Taunton, Rockwell Green, Milverton, Bishops Lydeard, Trull, Creech St Michael and nearby villages.",
     ],
     icon: Leaf,
+    priceFrom: "£25/hour",
     features: [
       "Lawn mowing and edging",
       "Hedge and shrub trimming (ground level)",
@@ -673,6 +767,10 @@ export const SERVICES: Service[] = [
     ],
     faqs: [
       {
+        q: "How much does garden maintenance cost?",
+        a: "From £25 per hour. Regular lawn mowing for an average garden is usually a fixed price per visit — tell us the size and we'll quote.",
+      },
+      {
         q: "How often should my lawn be mowed?",
         a: "During spring and summer most lawns look best mowed every one to two weeks.",
       },
@@ -683,7 +781,7 @@ export const SERVICES: Service[] = [
     ],
     metaTitle: "Garden Maintenance & Lawn Mowing Wellington & Taunton",
     metaDescription:
-      "Lawn mowing, hedge trimming, weeding and garden tidy-ups in Wellington, Taunton, Somerset & Devon. One-off or regular visits.",
+      "Garden maintenance in Wellington, Taunton & nearby from £25/hour: lawn mowing, hedge trimming, weeding and garden tidy-ups.",
   },
 
   // ---------- Specialist ----------
@@ -695,9 +793,11 @@ export const SERVICES: Service[] = [
       "Safe mould treatment for bathrooms, window frames and damp areas, plus advice to stop it returning.",
     intro: [
       "Black mould is unsightly and can affect your health. We treat mould on walls, ceilings, sealant and window frames using suitable products and safe methods.",
-      "We also give practical advice on ventilation and condensation to help stop it coming back.",
+      "We also give practical advice on ventilation and condensation to help stop it coming back — something many older Somerset homes and rentals struggle with in winter.",
+      "We treat mould in homes and rental properties across Taunton, Wellington, Bridgwater, Tiverton and the surrounding area.",
     ],
     icon: ShieldCheck,
+    priceFrom: "£60",
     image: mouldImage,
     features: [
       "Bathroom and shower mould",
@@ -714,13 +814,17 @@ export const SERVICES: Service[] = [
     ],
     faqs: [
       {
+        q: "How much does mould removal cost?",
+        a: "From £60 for a small area such as a bathroom ceiling or window reveals. Larger areas are quoted from photos.",
+      },
+      {
         q: "Will the mould come back?",
         a: "Mould returns if the cause (usually condensation or damp) remains. We'll advise you on ventilation and prevention.",
       },
     ],
     metaTitle: "Mould Removal Wellington & Taunton | Cleanfix24",
     metaDescription:
-      "Safe mould removal for bathrooms, walls and window frames in Somerset & Devon, with advice on preventing it from returning.",
+      "Mould removal in Taunton, Wellington & Somerset from £60. Bathrooms, walls, ceilings and window frames, plus advice on stopping it returning.",
   },
   {
     slug: "car-interior-detailing",
@@ -729,10 +833,12 @@ export const SERVICES: Service[] = [
     short:
       "Interior valeting for cars, vans and caravans — seats, mats, dashboard and every corner in between.",
     intro: [
-      "We use the same extraction equipment we use on sofas to deep clean car seats and fabric, removing stains, spills and odours.",
-      "Every surface is cleaned, from the dashboard and console to door pockets and cup holders — perfect before selling a car or after a family holiday.",
+      "We use the same extraction equipment we use on sofas to deep clean car seats, carpets and mats, lifting stains, spills and odours that a quick hoover can't touch.",
+      "Every surface is cleaned, from the dashboard and console to door pockets, cup holders, headlining marks and the boot — perfect before selling a car, after a family holiday or for a car that carries dogs.",
+      "We come to you in Wellington, Taunton, Bridgwater, Tiverton, Cullompton and nearby villages — all we need is a power socket nearby.",
     ],
     icon: Car,
+    priceFrom: "£45",
     image: carImage,
     features: [
       "Seat and fabric extraction",
@@ -749,6 +855,10 @@ export const SERVICES: Service[] = [
     ],
     faqs: [
       {
+        q: "How much does a car interior valet cost?",
+        a: "From £45 for a small car. Larger cars, 7-seaters and vans, or heavily soiled interiors, cost more — send a photo for a quick price.",
+      },
+      {
         q: "Can you come to me?",
         a: "Yes, we can clean your vehicle at your home. We'll need a power socket nearby.",
       },
@@ -760,7 +870,7 @@ export const SERVICES: Service[] = [
     ],
     metaTitle: "Car Interior Valeting & Detailing Somerset | Cleanfix24",
     metaDescription:
-      "Car, van and caravan interior detailing in Wellington, Taunton, Somerset & Devon. Seats extracted, stains and odours removed.",
+      "Mobile car interior valeting in Wellington, Taunton & nearby from £45. Seats and carpets extracted, stains and odours removed, at your home.",
   },
 ];
 
