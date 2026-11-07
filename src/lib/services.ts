@@ -1,7 +1,13 @@
 import upholsteryImage from "@/assets/upholstery.webp";
 import heroImage from "@/assets/hero.webp";
 import mouldImage from "@/assets/mould.webp";
-import carImage from "@/assets/car.webp";
+import carImage from "@/assets/car-interior.webp";
+import carSeatBefore from "@/assets/gallery/car-seat-before.webp";
+import carSeatAfter from "@/assets/gallery/car-seat-after.webp";
+import carHeadlinerBefore from "@/assets/gallery/car-headliner-before.webp";
+import carHeadlinerAfter from "@/assets/gallery/car-headliner-after.webp";
+import carPillarBefore from "@/assets/gallery/car-pillar-before.webp";
+import carPillarAfter from "@/assets/gallery/car-pillar-after.webp";
 import type { LucideIcon } from "lucide-react";
 import {
   Sofa,
@@ -63,6 +69,13 @@ export interface Faq {
   a: string;
 }
 
+/** A before/after photo pair from a real Cleanfix24 job. */
+export interface GalleryPair {
+  before: string;
+  after: string;
+  caption: string;
+}
+
 export interface Service {
   slug: string;
   category: CategoryId;
@@ -78,6 +91,8 @@ export interface Service {
   features: string[];
   process: string[];
   faqs: Faq[];
+  /** Before/after photos — only real jobs, never stock or internet images. */
+  gallery?: GalleryPair[];
   metaTitle: string;
   metaDescription: string;
 }
@@ -692,6 +707,11 @@ export const SERVICES: Service[] = [
         q: "Can you come to me?",
         a: "Yes, we can clean your vehicle at your home. We'll need a power socket nearby.",
       },
+    ],
+    gallery: [
+      { before: carSeatBefore, after: carSeatAfter, caption: "Fabric seat: stains and grime extracted" },
+      { before: carHeadlinerBefore, after: carHeadlinerAfter, caption: "Roof lining: marks lifted" },
+      { before: carPillarBefore, after: carPillarAfter, caption: "Door pillar: dirty patches cleaned" },
     ],
     metaTitle: "Car Interior Valeting & Detailing Somerset | Cleanfix24",
     metaDescription:
