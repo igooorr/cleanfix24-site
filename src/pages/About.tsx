@@ -46,7 +46,7 @@ const About = () => {
               <p className="text-lg text-muted-foreground mb-4 leading-relaxed">
                 We understand how important your home and comfort are. That's why we treat every job 
                 like it's our own home. Whether it's a deep clean after a party, removing stubborn 
-                stains from your carpet, or detailing your car interior, we bring the same level of 
+                stains from your sofa or mattress, or detailing your car interior, we bring the same level of 
                 attention and care to each project.
               </p>
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">

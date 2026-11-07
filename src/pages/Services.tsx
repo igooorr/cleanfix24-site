@@ -3,79 +3,11 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ServiceCard from "@/components/ServiceCard";
-import upholsteryImage from "@/assets/upholstery.webp";
-import carpetImage from "@/assets/carpet.webp";
-import mouldImage from "@/assets/mould.webp";
-import carImage from "@/assets/car.webp";
+import { INTERIOR_SERVICES, EXTERIOR_SERVICES, NOT_OFFERED, type Service } from "@/lib/services";
 import { WHATSAPP_URL } from "@/lib/site";
 
 const Services = () => {
-  usePageMeta("Cleaning Services | Cleanfix24 - Carpet, Upholstery, Car & Mould", "Carpet and upholstery cleaning, car detailing, mould removal and house cleaning across Wellington, Taunton, Somerset & Devon.", "/services");
-  const services = [
-    {
-      title: "House & Apartment Cleaning",
-      description: "Comprehensive cleaning services for your home. We handle everything from regular maintenance to deep cleans after events or construction work.",
-      image: upholsteryImage,
-      features: [
-        "Regular weekly/fortnightly cleaning",
-        "After-party deep cleaning",
-        "Post-rental turnover cleaning",
-        "After builders cleaning",
-        "One-off deep cleans"
-      ]
-    },
-    {
-      title: "Upholstery & Carpet Cleaning",
-      description: "Professional stain removal and deep cleaning for all types of upholstery and carpets. Safe, effective, and thorough.",
-      image: carpetImage,
-      features: [
-        "Food & drink stain removal",
-        "Pet stain & odour elimination",
-        "Blood stain removal",
-        "Deep carpet cleaning",
-        "Furniture upholstery cleaning",
-        "Mattress cleaning"
-      ]
-    },
-    {
-      title: "Mould Removal",
-      description: "Expert mould remediation for bathrooms and damp areas. We remove mould safely and help prevent future growth.",
-      image: mouldImage,
-      features: [
-        "Bathroom mould treatment",
-        "Damp area remediation",
-        "Prevention advice",
-        "Safe removal techniques",
-        "Surface sanitization"
-      ]
-    },
-    {
-      title: "Car Interior Detailing",
-      description: "Complete interior cleaning and detailing for cars, vans, and caravans. Make your vehicle look and feel brand new.",
-      image: carImage,
-      features: [
-        "Deep vacuum & extraction",
-        "Upholstery & seat cleaning",
-        "Dashboard & console detailing",
-        "Odour removal",
-        "Stain treatment",
-        "All vehicle types"
-      ]
-    },
-    {
-      title: "Handyman & Garden Work",
-      description: "General property maintenance and garden services to keep your home in top condition.",
-      image: upholsteryImage,
-      features: [
-        "Furniture assembly",
-        "Minor repairs",
-        "Garden tidying",
-        "Window restoration",
-        "Pressure washing",
-        "General maintenance"
-      ]
-    }
-  ];
+  usePageMeta("Cleaning Services | Cleanfix24 - Upholstery, Mattress & Patio Cleaning", "Sofa and upholstery cleaning, mattress cleaning, stain removal, patio and exterior wall cleaning, house cleaning and car detailing across Wellington, Taunton, Somerset & Devon.", "/services");
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -89,30 +21,33 @@ const Services = () => {
             Our Services
           </h1>
           <p className="text-xl text-center mt-4 text-white/90 max-w-3xl mx-auto animate-fade-in">
-            From homes to cars, we offer comprehensive cleaning solutions tailored to your needs
+            Inside and out — upholstery, mattresses, stain removal, patios and more
           </p>
         </div>
       </section>
 
-      {/* Services Grid */}
-      <section className="py-16">
+      <ServiceSection
+        title="Interior Cleaning"
+        subtitle="Soft furniture, mattresses and stain removal are our speciality"
+        services={INTERIOR_SERVICES}
+      />
+      <ServiceSection
+        title="Exterior Cleaning"
+        subtitle="Bring the outside of your home back to life"
+        services={EXTERIOR_SERVICES}
+        muted
+      />
+
+      <section className="pb-4 pt-8">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            {services.map((service, index) => (
-              <div 
-                key={index}
-                className="animate-fade-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <ServiceCard {...service} />
-              </div>
-            ))}
-          </div>
+          <p className="max-w-3xl mx-auto text-center text-sm text-muted-foreground">
+            Please note: {NOT_OFFERED.toLowerCase()} are not currently part of our services.
+          </p>
         </div>
       </section>
 
       {/* Service Areas */}
-      <section className="py-16 bg-muted/30">
+      <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Service Areas</h2>
@@ -138,7 +73,7 @@ const Services = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-16">
+      <section className="pb-16">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center bg-gradient-to-br from-primary to-secondary text-white p-12 rounded-2xl">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -171,5 +106,37 @@ const Services = () => {
     </div>
   );
 };
+
+const ServiceSection = ({
+  title,
+  subtitle,
+  services,
+  muted = false,
+}: {
+  title: string;
+  subtitle: string;
+  services: Service[];
+  muted?: boolean;
+}) => (
+  <section className={`py-16 ${muted ? "bg-muted/30" : ""}`}>
+    <div className="container mx-auto px-4">
+      <div className="text-center mb-12">
+        <h2 className="text-3xl md:text-4xl font-bold mb-3">{title}</h2>
+        <p className="text-lg text-muted-foreground">{subtitle}</p>
+      </div>
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        {services.map((service, index) => (
+          <div
+            key={service.title}
+            className="animate-fade-in"
+            style={{ animationDelay: `${index * 0.1}s` }}
+          >
+            <ServiceCard {...service} />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
 
 export default Services;

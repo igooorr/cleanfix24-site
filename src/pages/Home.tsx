@@ -5,14 +5,11 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import heroImage from "@/assets/hero.webp";
-import upholsteryImage from "@/assets/upholstery.webp";
-import carpetImage from "@/assets/carpet.webp";
-import carImage from "@/assets/car.webp";
-import { Sparkles, Home as HomeIcon, Car } from "lucide-react";
+import { INTERIOR_SERVICES, EXTERIOR_SERVICES } from "@/lib/services";
 import { SITE, WHATSAPP_URL, TEL_URL } from "@/lib/site";
 
 const Home = () => {
-  usePageMeta("Cleanfix24 - Professional Cleaning Services | Somerset & Devon", "Family-run cleaning service in Wellington, Taunton, Somerset & Devon. House cleaning, carpet & upholstery cleaning, car detailing and mould removal. Free quotes.", "/");
+  usePageMeta("Cleanfix24 - Professional Cleaning Services | Somerset & Devon", "Family-run cleaning service in Wellington, Taunton, Somerset & Devon. Sofa & upholstery cleaning, mattress cleaning, stain removal and patio cleaning. Free quotes.", "/");
   const scrollToContact = () => {
     const contactSection = document.getElementById('contact');
     if (contactSection) {
@@ -20,25 +17,12 @@ const Home = () => {
     }
   };
 
+  // Highlighted on the home page; full list lives on /services.
   const services = [
-    {
-      icon: <HomeIcon size={40} className="text-primary" />,
-      title: "House & Apartment Cleaning",
-      description: "Regular cleaning, after-party, post-rental, and after builders deep cleaning services.",
-      image: upholsteryImage,
-    },
-    {
-      icon: <Sparkles size={40} className="text-primary" />,
-      title: "Upholstery & Carpet Cleaning",
-      description: "Professional stain removal including food, drink, pet stains, and odour elimination.",
-      image: carpetImage,
-    },
-    {
-      icon: <Car size={40} className="text-primary" />,
-      title: "Car Interior Detailing",
-      description: "Deep interior cleaning for cars, vans, and caravans. Make your vehicle pristine again.",
-      image: carImage,
-    },
+    INTERIOR_SERVICES[0], // Upholstery
+    INTERIOR_SERVICES[1], // Mattress
+    INTERIOR_SERVICES[2], // Stain removal
+    EXTERIOR_SERVICES[0], // Patio
   ];
 
   return (
@@ -70,7 +54,7 @@ const Home = () => {
                   size="lg" 
                   variant="outline"
                   asChild
-                  className="border-2 border-white text-white hover:bg-white/10 text-lg px-8"
+                  className="border-2 border-white bg-transparent text-white hover:bg-white/10 hover:text-white text-lg px-8"
                 >
                   <a href="/services">View Services</a>
                 </Button>
@@ -94,7 +78,7 @@ const Home = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Welcome to Cleanfix24</h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
               At Cleanfix24, we provide professional, family-run cleaning services across Somerset and Devon. 
-              From homes to cars — we make every space shine. Based in Wellington and Taunton, 
+              From sofas and mattresses to patios — we make every space shine. Based in Wellington and Taunton, 
               we're passionate about delivering spotless results you can trust.
             </p>
           </div>
@@ -105,25 +89,33 @@ const Home = () => {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Our Services</h2>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {services.map((service, index) => (
               <Card 
-                key={index}
-                className="overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-fade-in"
+                key={service.title}
+                className="flex flex-col overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-fade-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="aspect-video overflow-hidden">
-                  <img 
-                    src={service.image} 
-                    alt={service.title} loading="lazy" decoding="async"
-                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
-                  />
+                  {service.image ? (
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary to-secondary">
+                      <service.icon size={64} strokeWidth={1.5} className="text-white" aria-hidden="true" />
+                    </div>
+                  )}
                 </div>
-                <CardContent className="p-6">
-                  <div className="mb-4">{service.icon}</div>
+                <CardContent className="p-6 flex flex-col flex-1">
+                  {service.image && <service.icon size={40} className="text-primary mb-4" aria-hidden="true" />}
                   <h3 className="text-xl font-bold mb-3">{service.title}</h3>
                   <p className="text-muted-foreground mb-4">{service.description}</p>
-                  <Button asChild className="w-full bg-primary hover:bg-primary/90">
+                  <Button asChild className="w-full mt-auto bg-primary hover:bg-primary/90">
                     <a href="/services">Learn More</a>
                   </Button>
                 </CardContent>

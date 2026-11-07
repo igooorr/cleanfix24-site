@@ -59,8 +59,8 @@ All colors MUST be HSL.
 }
 
 @layer utilities {
+  /* Element must be positioned (relative/fixed/absolute) for the shine overlay. */
   .shine {
-    position: relative;
     overflow: hidden;
   }
   
