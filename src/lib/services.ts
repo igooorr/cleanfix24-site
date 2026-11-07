@@ -4,6 +4,14 @@ import kitchenImage from "@/assets/kitchen.webp";
 import emptyRoomImage from "@/assets/end-of-tenancy.webp";
 import mattressImage from "@/assets/mattress.webp";
 import patioImage from "@/assets/patio.webp";
+import gBuildersKitchenBefore from "@/assets/gallery/builders-kitchen-before.webp";
+import gBuildersKitchenAfter from "@/assets/gallery/builders-kitchen-after.webp";
+import gKitchenDinerBefore from "@/assets/gallery/kitchen-diner-before.webp";
+import gKitchenDinerAfter from "@/assets/gallery/kitchen-diner-after.webp";
+import gKitchenPartyBefore from "@/assets/gallery/kitchen-party-before.webp";
+import gKitchenPartyAfter from "@/assets/gallery/kitchen-party-after.webp";
+import gBuildersLivingBefore from "@/assets/gallery/builders-living-before.webp";
+import gBuildersLivingAfter from "@/assets/gallery/builders-living-after.webp";
 import afterBuildersImage from "@/assets/after-builders.webp";
 import gOvenBefore from "@/assets/gallery/oven-before.webp";
 import gOvenAfter from "@/assets/gallery/oven-after.webp";
@@ -147,6 +155,9 @@ export const SERVICES: Service[] = [
         a: "Not at all. Many clients give us a key or a door code so we can clean while they're out.",
       },
     ],
+    gallery: [
+      { before: gKitchenDinerBefore, after: gKitchenDinerAfter, caption: "Kitchen-diner: tidied and cleaned" },
+    ],
     metaTitle: "Regular House Cleaning in Wellington & Taunton | Cleanfix24",
     metaDescription:
       "Weekly, fortnightly or monthly house cleaning across Wellington, Taunton, Somerset & Devon. Family-run, reliable and flexible. Get a free quote.",
@@ -190,6 +201,7 @@ export const SERVICES: Service[] = [
     ],
     gallery: [
       { before: gOvenBefore, after: gOvenAfter, caption: "Oven door: grease and smears removed" },
+      { before: gKitchenPartyBefore, after: gKitchenPartyAfter, caption: "Kitchen after a party: spills and rubbish cleared" },
     ],
     metaTitle: "Deep Cleaning & Spring Cleaning in Somerset | Cleanfix24",
     metaDescription:
@@ -232,6 +244,8 @@ export const SERVICES: Service[] = [
     ],
     gallery: [
       { before: gOvenBefore, after: gOvenAfter, caption: "Oven door: grease and smears removed" },
+      { before: gKitchenPartyBefore, after: gKitchenPartyAfter, caption: "Kitchen: spills and rubbish cleared" },
+      { before: gKitchenDinerBefore, after: gKitchenDinerAfter, caption: "Kitchen-diner: cleared and cleaned" },
     ],
     metaTitle: "End of Tenancy Cleaning Wellington & Taunton | Cleanfix24",
     metaDescription:
@@ -272,6 +286,8 @@ export const SERVICES: Service[] = [
     gallery: [
       { before: gBuildersBathroomBefore, after: gBuildersBathroomAfter, caption: "Washroom: tile adhesive haze and debris cleared" },
       { before: gBuildersRoomBefore, after: gBuildersRoomAfter, caption: "Room: rubble removed and floor cleaned" },
+      { before: gBuildersKitchenBefore, after: gBuildersKitchenAfter, caption: "New kitchen: dust and offcuts removed" },
+      { before: gBuildersLivingBefore, after: gBuildersLivingAfter, caption: "Living room: building mess cleared, floor cleaned" },
     ],
     metaTitle: "After Builders Cleaning in Somerset & Devon | Cleanfix24",
     metaDescription:
