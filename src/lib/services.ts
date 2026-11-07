@@ -9,6 +9,7 @@ import laundryImage from "@/assets/laundry.webp";
 import gardenImage from "@/assets/garden.webp";
 import commercialImage from "@/assets/commercial.webp";
 import exteriorWallImage from "@/assets/exterior-wall.webp";
+import holidayLetImage from "@/assets/holiday-let.webp";
 import gBuildersKitchenBefore from "@/assets/gallery/builders-kitchen-before.webp";
 import gBuildersKitchenAfter from "@/assets/gallery/builders-kitchen-after.webp";
 import gKitchenDinerBefore from "@/assets/gallery/kitchen-diner-before.webp";
@@ -395,7 +396,7 @@ export const SERVICES: Service[] = [
     ],
     icon: BedSingle,
     priceFrom: "£45 per changeover",
-    image: bathroomImage,
+    image: holidayLetImage,
     features: [
       "Full clean between guests",
       "Beds made with fresh linen",
