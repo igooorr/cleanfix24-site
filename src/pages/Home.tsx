@@ -12,6 +12,7 @@ import { getService, type Service } from "@/lib/services";
 import { SITE, WHATSAPP_URL, TEL_URL } from "@/lib/site";
 import QuickQuoteForm from "@/components/QuickQuoteForm";
 import ruslanaImage from "@/assets/ruslana.webp";
+import ihorImage from "@/assets/ihor.webp";
 import { ClipboardList, MessageCircle, Phone, PoundSterling, Sparkles } from "lucide-react";
 
 const STEPS = [
@@ -96,15 +97,25 @@ const Home = () => {
       <section className="py-16 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-[2fr_3fr] gap-10 items-center max-w-5xl mx-auto">
-            <img
-              src={ruslanaImage}
-              alt="Ruslana, co-owner of Cleanfix24"
-              loading="lazy"
-              decoding="async"
-              width={640}
-              height={800}
-              className="rounded-2xl shadow-xl w-full max-w-sm mx-auto h-auto"
-            />
+            <div className="grid grid-cols-2 gap-4 max-w-sm mx-auto w-full">
+              {[
+                [ihorImage, "Ihor"],
+                [ruslanaImage, "Ruslana"],
+              ].map(([src, name]) => (
+                <figure key={name}>
+                  <img
+                    src={src}
+                    alt={`${name}, co-owner of Cleanfix24`}
+                    loading="lazy"
+                    decoding="async"
+                    width={640}
+                    height={800}
+                    className="rounded-2xl shadow-xl w-full h-auto"
+                  />
+                  <figcaption className="text-center mt-2 font-medium">{name}</figcaption>
+                </figure>
+              ))}
+            </div>
             <div className="animate-fade-in">
               <p className="text-primary font-semibold mb-2">Meet the owners</p>
               <h2 className="text-3xl md:text-4xl font-bold mb-6">Hi, we're Ihor and Ruslana</h2>

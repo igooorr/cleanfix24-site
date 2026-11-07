@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Button } from "@/components/ui/button";
 import ruslanaImage from "@/assets/ruslana.webp";
+import ihorImage from "@/assets/ihor.webp";
 import { Heart, Award, Users } from "lucide-react";
 
 const About = () => {
@@ -30,18 +31,25 @@ const About = () => {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             <div className="animate-fade-in">
-              <figure className="max-w-md mx-auto">
-                <img
-                  src={ruslanaImage}
-                  alt="Ruslana, co-owner of Cleanfix24"
-                  loading="lazy"
-                  decoding="async"
-                  width={640}
-                  height={800}
-                  className="rounded-2xl shadow-xl w-full h-auto"
-                />
-                <figcaption className="text-center mt-3 text-muted-foreground">Ruslana, co-owner of Cleanfix24</figcaption>
-              </figure>
+              <div className="grid grid-cols-2 gap-4 max-w-md mx-auto">
+                {[
+                  [ihorImage, "Ihor"],
+                  [ruslanaImage, "Ruslana"],
+                ].map(([src, name]) => (
+                  <figure key={name}>
+                    <img
+                      src={src}
+                      alt={`${name}, co-owner of Cleanfix24`}
+                      loading="lazy"
+                      decoding="async"
+                      width={640}
+                      height={800}
+                      className="rounded-2xl shadow-xl w-full h-auto"
+                    />
+                    <figcaption className="text-center mt-2 font-medium">{name}</figcaption>
+                  </figure>
+                ))}
+              </div>
             </div>
             <div className="animate-fade-in">
               <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Story</h2>

@@ -28,6 +28,7 @@ import { usePageMeta } from "@/hooks/usePageMeta";
 import { sendViaEmail, sendViaWhatsApp } from "@/lib/enquiry";
 import { canonicalUrl } from "@/lib/routes";
 import { SITE, TRUST } from "@/lib/site";
+import homeCareImage from "@/assets/home-care-ihor.webp";
 
 const PATH = "/home-care";
 
@@ -282,6 +283,15 @@ const HomeCare = () => {
 
       {/* Hero */}
       <section className="relative bg-gradient-to-br from-accent via-primary to-secondary text-white overflow-hidden">
+        <img
+          src={homeCareImage}
+          alt="Ihor from Cleanfix24 holding the keys outside a Somerset home"
+          {...({ fetchpriority: "high" } as object)}
+          width={1200}
+          height={675}
+          className="absolute inset-0 w-full h-full object-cover object-[70%_center]"
+        />
+        <div className="absolute inset-0 bg-slate-900/80 md:bg-transparent md:bg-gradient-to-r md:from-slate-900/90 md:via-slate-900/70 md:to-slate-900/10" />
         <div className="container mx-auto px-4 py-20 md:py-28 relative z-10">
           <div className="max-w-3xl">
             <p className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-1 text-sm font-medium mb-6">
