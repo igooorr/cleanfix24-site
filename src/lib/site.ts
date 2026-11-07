@@ -22,7 +22,7 @@ export const TRUST = {
  * Free key from https://web3forms.com (enter the email that should receive enquiries).
  * While empty, "Send by email" opens the visitor's email app instead.
  */
-export const WEB3FORMS_KEY = "";
+export const WEB3FORMS_KEY = "5cf64c93-76ae-48d6-b47e-acc70ead7158";
 
 export const WHATSAPP_URL = `https://wa.me/${SITE.whatsappNumber}`;
 export const TEL_URL = `tel:${SITE.phoneTel}`;
