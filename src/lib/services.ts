@@ -570,10 +570,10 @@ export const SERVICES: Service[] = [
     category: "upholstery",
     title: "Stain Removal",
     short:
-      "Specialist treatment for stubborn stains on upholstery and mattresses — food, drink, pets, blood and more.",
+      "Specialist treatment for stubborn stains on sofas, mattresses and carpets — food, drink, pets, blood and more.",
     intro: [
       "Different stains need different treatments. Coffee, red wine, blood, make-up, ink and pet accidents all react differently — and the wrong product can set a stain for good.",
-      "We identify the stain and the fabric, choose the right treatment, and remove it as safely and completely as possible from sofas, chairs, mattresses and rugs.",
+      "We identify the stain and the fabric, choose the right treatment, and remove it as safely and completely as possible from sofas, armchairs, mattresses and carpets. Please note we treat stains on furniture and floors only — we don't clean clothing.",
       "We treat stains in homes across Taunton, Wellington and the surrounding towns and villages, often on the same visit as a sofa or mattress clean.",
     ],
     icon: Droplets,
@@ -599,13 +599,17 @@ export const SERVICES: Service[] = [
         a: "Spot stain removal starts from £30. If the whole piece of furniture needs cleaning, we'll price it as a sofa or mattress clean instead.",
       },
       {
+        q: "Can you remove stains from clothes?",
+        a: "No — we only treat stains on sofas, armchairs, mattresses and carpets. For clothing, a local dry cleaner is the best option.",
+      },
+      {
         q: "What should I do straight after a spill?",
         a: "Blot (don't rub) with a clean white cloth and avoid household chemicals — then contact us as soon as possible.",
       },
     ],
-    metaTitle: "Stain Removal for Sofas & Mattresses Somerset | Cleanfix24",
+    metaTitle: "Stain Removal for Sofas, Mattresses & Carpets | Cleanfix24",
     metaDescription:
-      "Professional stain removal for sofas, mattresses and rugs in Taunton, Wellington & Somerset from £30. Wine, coffee, pet and make-up stains.",
+      "Stain removal for sofas, mattresses and carpets in Taunton, Wellington & Somerset from £30. Wine, coffee, pet and make-up stains lifted.",
   },
 
   // ---------- Exterior ----------
@@ -881,7 +885,7 @@ export const SERVICES: Service[] = [
 ];
 
 export const NOT_OFFERED =
-  "we don't offer carpet cleaning or any work at height, such as roof, gutter or high-level window cleaning";
+  "we don't offer full carpet cleaning (only spot stain removal on carpets), clothing stain removal, or any work at height, such as roof, gutter or high-level window cleaning";
 
 export const servicesIn = (category: CategoryId) =>
   SERVICES.filter((s) => s.category === category);
