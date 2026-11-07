@@ -1,13 +1,16 @@
+import { usePageMeta } from "@/hooks/usePageMeta";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ServiceCard from "@/components/ServiceCard";
-import upholsteryImage from "@/assets/upholstery.png";
-import carpetImage from "@/assets/carpet.png";
-import mouldImage from "@/assets/mould.png";
-import carImage from "@/assets/car.png";
+import upholsteryImage from "@/assets/upholstery.webp";
+import carpetImage from "@/assets/carpet.webp";
+import mouldImage from "@/assets/mould.webp";
+import carImage from "@/assets/car.webp";
+import { WHATSAPP_URL } from "@/lib/site";
 
 const Services = () => {
+  usePageMeta("Cleaning Services | Cleanfix24 - Carpet, Upholstery, Car & Mould", "Carpet and upholstery cleaning, car detailing, mould removal and house cleaning across Wellington, Taunton, Somerset & Devon.", "/services");
   const services = [
     {
       title: "House & Apartment Cleaning",
@@ -146,7 +149,7 @@ const Services = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a 
-                href="https://wa.me/447840475060" 
+                href={WHATSAPP_URL} 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="bg-white text-primary hover:bg-white/90 px-8 py-3 rounded-lg font-semibold transition-colors"

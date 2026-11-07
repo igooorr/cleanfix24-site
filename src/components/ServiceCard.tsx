@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { WHATSAPP_URL } from "@/lib/site";
 
 interface ServiceCardProps {
   title: string;
@@ -14,7 +15,7 @@ const ServiceCard = ({ title, description, image, features }: ServiceCardProps) 
       <div className="aspect-video overflow-hidden">
         <img 
           src={image} 
-          alt={title} 
+          alt={title} loading="lazy" decoding="async" 
           className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
         />
       </div>
@@ -32,7 +33,7 @@ const ServiceCard = ({ title, description, image, features }: ServiceCardProps) 
           </ul>
         )}
         <Button asChild className="w-full bg-primary hover:bg-primary/90">
-          <a href="https://wa.me/447840475060" target="_blank" rel="noopener noreferrer">
+          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
             Book Now
           </a>
         </Button>

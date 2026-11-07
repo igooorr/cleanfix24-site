@@ -2,7 +2,8 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo.webp";
+import { WHATSAPP_URL } from "@/lib/site";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,7 +23,7 @@ const Navigation = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           <Link to="/" className="flex items-center">
-            <img src={logo} alt="Cleanfix24 Logo" className="h-12 md:h-16 w-auto" />
+            <img src={logo} alt="Cleanfix24 Logo" width={480} height={274} className="h-12 md:h-16 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}
@@ -39,7 +40,7 @@ const Navigation = () => {
               </Link>
             ))}
             <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
-              <a href="https://wa.me/447840475060" target="_blank" rel="noopener noreferrer">
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
                 Get a Quote
               </a>
             </Button>
@@ -72,7 +73,7 @@ const Navigation = () => {
                 </Link>
               ))}
               <Button asChild className="bg-primary hover:bg-primary/90 w-full">
-                <a href="https://wa.me/447840475060" target="_blank" rel="noopener noreferrer">
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
                   Get a Quote
                 </a>
               </Button>

@@ -1,15 +1,18 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { usePageMeta } from "@/hooks/usePageMeta";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import heroImage from "@/assets/hero.png";
-import upholsteryImage from "@/assets/upholstery.png";
-import carpetImage from "@/assets/carpet.png";
-import carImage from "@/assets/car.png";
+import heroImage from "@/assets/hero.webp";
+import upholsteryImage from "@/assets/upholstery.webp";
+import carpetImage from "@/assets/carpet.webp";
+import carImage from "@/assets/car.webp";
 import { Sparkles, Home as HomeIcon, Car } from "lucide-react";
+import { SITE, WHATSAPP_URL, TEL_URL } from "@/lib/site";
 
 const Home = () => {
+  usePageMeta("Cleanfix24 - Professional Cleaning Services | Somerset & Devon", "Family-run cleaning service in Wellington, Taunton, Somerset & Devon. House cleaning, carpet & upholstery cleaning, car detailing and mould removal. Free quotes.", "/");
   const scrollToContact = () => {
     const contactSection = document.getElementById('contact');
     if (contactSection) {
@@ -76,7 +79,7 @@ const Home = () => {
             <div className="animate-fade-in hidden md:block">
               <img 
                 src={heroImage} 
-                alt="Professional cleaner" 
+                alt="Professional Cleanfix24 cleaner at work" fetchPriority="high" width={1100} height={619} 
                 className="rounded-2xl shadow-2xl"
               />
             </div>
@@ -112,7 +115,7 @@ const Home = () => {
                 <div className="aspect-video overflow-hidden">
                   <img 
                     src={service.image} 
-                    alt={service.title}
+                    alt={service.title} loading="lazy" decoding="async"
                     className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
                   />
                 </div>
@@ -140,13 +143,13 @@ const Home = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" asChild className="bg-primary hover:bg-primary/90">
-                <a href="https://wa.me/447840475060" target="_blank" rel="noopener noreferrer">
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
                   WhatsApp Us
                 </a>
               </Button>
               <Button size="lg" variant="outline" asChild>
-                <a href="tel:07840475060">
-                  Call 07840 475060
+                <a href={TEL_URL}>
+                  Call {SITE.phoneDisplay}
                 </a>
               </Button>
               <Button size="lg" variant="outline" asChild>

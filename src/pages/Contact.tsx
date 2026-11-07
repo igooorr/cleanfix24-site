@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { usePageMeta } from "@/hooks/usePageMeta";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -6,11 +7,12 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { useToast } from "@/hooks/use-toast";
+import { toast } from "sonner";
 import { Phone, Mail, MapPin, MessageCircle } from "lucide-react";
+import { SITE, WHATSAPP_URL, TEL_URL, MAILTO_URL } from "@/lib/site";
 
 const Contact = () => {
-  const { toast } = useToast();
+  usePageMeta("Contact Us | Cleanfix24 - Free Quotes in Somerset & Devon", "Get a free cleaning quote from Cleanfix24. Call, WhatsApp or send a message - serving Wellington, Taunton and surrounding areas.", "/contact");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -23,24 +25,17 @@ const Contact = () => {
     
     // Basic validation
     if (!formData.name || !formData.email || !formData.message) {
-      toast({
-        title: "Missing Information",
-        description: "Please fill in all required fields",
-        variant: "destructive"
-      });
+      toast.error("Please fill in all required fields");
       return;
     }
 
     // Create WhatsApp message
     const whatsappMessage = `New Contact Form Submission:\n\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\n\nMessage:\n${formData.message}`;
-    const whatsappUrl = `https://wa.me/447840475060?text=${encodeURIComponent(whatsappMessage)}`;
+    const whatsappUrl = `${WHATSAPP_URL}?text=${encodeURIComponent(whatsappMessage)}`;
     
     window.open(whatsappUrl, '_blank');
     
-    toast({
-      title: "Opening WhatsApp",
-      description: "Your message has been prepared. Click send in WhatsApp to complete.",
-    });
+    toast.success("Opening WhatsApp. Your message is prepared — click send to complete.");
 
     // Reset form
     setFormData({ name: "", email: "", phone: "", message: "" });
@@ -155,8 +150,8 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg mb-1">Phone</h3>
-                    <a href="tel:07840475060" className="text-primary hover:underline text-lg">
-                      07840 475060
+                    <a href={TEL_URL} className="text-primary hover:underline text-lg">
+                      {SITE.phoneDisplay}
                     </a>
                     <p className="text-sm text-muted-foreground mt-1">
                       Call us Monday - Sunday, 8am - 8pm
@@ -171,7 +166,7 @@ const Contact = () => {
                   <div>
                     <h3 className="font-semibold text-lg mb-1">WhatsApp</h3>
                     <a 
-                      href="https://wa.me/447840475060" 
+                      href={WHATSAPP_URL} 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="text-primary hover:underline text-lg"
@@ -190,8 +185,8 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg mb-1">Email</h3>
-                    <a href="mailto:spihor@gmail.com" className="text-primary hover:underline text-lg">
-                      spihor@gmail.com
+                    <a href={MAILTO_URL} className="text-primary hover:underline text-lg">
+                      {SITE.email}
                     </a>
                     <p className="text-sm text-muted-foreground mt-1">
                       We'll respond within 24 hours

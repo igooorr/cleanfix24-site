@@ -1,11 +1,13 @@
+import { usePageMeta } from "@/hooks/usePageMeta";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/hero.png";
+import heroImage from "@/assets/hero.webp";
 import { Heart, Award, Users } from "lucide-react";
 
 const About = () => {
+  usePageMeta("About Us | Cleanfix24 - Family-Run Cleaners in Somerset", "Meet Ihor and Ruslana, the family behind Cleanfix24, a trusted local cleaning business serving Wellington, Taunton and the Somerset & Devon area.", "/about");
   return (
     <div className="min-h-screen flex flex-col">
       <Navigation />
@@ -30,7 +32,7 @@ const About = () => {
             <div className="animate-fade-in">
               <img 
                 src={heroImage} 
-                alt="Cleanfix24 team" 
+                alt="Ihor and Ruslana, owners of Cleanfix24" loading="lazy" decoding="async" width={1100} height={619} 
                 className="rounded-2xl shadow-xl"
               />
             </div>

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin } from "lucide-react";
+import { SITE, TEL_URL, MAILTO_URL } from "@/lib/site";
 
 const Footer = () => {
   return (
@@ -45,14 +46,14 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-center gap-2">
                 <Phone size={18} />
-                <a href="tel:07840475060" className="text-accent-foreground/80 hover:text-accent-foreground transition-colors">
-                  07840 475060
+                <a href={TEL_URL} className="text-accent-foreground/80 hover:text-accent-foreground transition-colors">
+                  {SITE.phoneDisplay}
                 </a>
               </li>
               <li className="flex items-center gap-2">
                 <Mail size={18} />
-                <a href="mailto:spihor@gmail.com" className="text-accent-foreground/80 hover:text-accent-foreground transition-colors">
-                  spihor@gmail.com
+                <a href={MAILTO_URL} className="text-accent-foreground/80 hover:text-accent-foreground transition-colors">
+                  {SITE.email}
                 </a>
               </li>
               <li className="flex items-start gap-2">
