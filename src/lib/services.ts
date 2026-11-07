@@ -8,6 +8,7 @@ import handymanImage from "@/assets/handyman.webp";
 import laundryImage from "@/assets/laundry.webp";
 import gardenImage from "@/assets/garden.webp";
 import commercialImage from "@/assets/commercial.webp";
+import exteriorWallImage from "@/assets/exterior-wall.webp";
 import gBuildersKitchenBefore from "@/assets/gallery/builders-kitchen-before.webp";
 import gBuildersKitchenAfter from "@/assets/gallery/builders-kitchen-after.webp";
 import gKitchenDinerBefore from "@/assets/gallery/kitchen-diner-before.webp";
@@ -679,7 +680,7 @@ export const SERVICES: Service[] = [
     ],
     icon: Building2,
     priceFrom: "£120",
-    image: patioImage,
+    image: exteriorWallImage,
     features: [
       "Render and painted walls",
       "Brick and stone walls",
