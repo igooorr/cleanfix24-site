@@ -2,9 +2,9 @@
 export const SITE = {
   name: "Cleanfix24",
   url: "https://cleanfix24.co.uk",
-  phoneDisplay: "07840 475060",
-  phoneTel: "07840475060",
-  whatsappNumber: "447840475060",
+  phoneDisplay: "07758 144499",
+  phoneTel: "07758144499",
+  whatsappNumber: "447758144499",
   email: "info@cleanfix24.co.uk",
   owners: "Ihor and Ruslana",
 } as const;
