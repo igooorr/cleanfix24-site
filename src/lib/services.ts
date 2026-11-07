@@ -17,9 +17,11 @@ import {
   Car,
   Fence,
   Building2,
+  Wrench,
+  Leaf,
 } from "lucide-react";
 
-export type CategoryId = "cleaning" | "upholstery" | "exterior" | "specialist";
+export type CategoryId = "cleaning" | "upholstery" | "exterior" | "handyman" | "specialist";
 
 export interface Category {
   id: CategoryId;
@@ -42,6 +44,11 @@ export const CATEGORIES: Category[] = [
     id: "exterior",
     title: "Exterior Cleaning",
     subtitle: "Bring the outside of your home back to life",
+  },
+  {
+    id: "handyman",
+    title: "Handyman & Garden",
+    subtitle: "Small jobs around the home and garden",
   },
   {
     id: "specialist",
@@ -454,7 +461,7 @@ export const SERVICES: Service[] = [
       },
       {
         q: "Do you clean roofs or gutters?",
-        a: "No — our exterior services are patio and exterior wall cleaning only.",
+        a: "No — we don't do any work at height, so roof and gutter cleaning aren't part of our services.",
       },
     ],
     metaTitle: "Patio Cleaning & Pressure Washing Wellington & Taunton | Cleanfix24",
@@ -494,6 +501,85 @@ export const SERVICES: Service[] = [
     metaTitle: "Exterior Wall & Render Cleaning Somerset | Cleanfix24",
     metaDescription:
       "Exterior wall cleaning in Wellington, Taunton, Somerset & Devon. Green algae and dirt removed from render, brick and stone walls.",
+  },
+
+  // ---------- Handyman & garden ----------
+  {
+    slug: "handyman-services",
+    category: "handyman",
+    title: "Handyman Services",
+    short:
+      "Furniture assembly, small repairs and odd jobs around the house — the little things on your to-do list.",
+    intro: [
+      "Every home has a list of small jobs that never seem to get done. We can take care of them for you — from assembling flat-pack furniture to fixing a loose handle or putting up shelves.",
+      "It's a handy add-on to a clean, too: ideal for landlords between tenancies, people moving home, or anyone who simply doesn't have the time.",
+    ],
+    icon: Wrench,
+    features: [
+      "Flat-pack furniture assembly",
+      "Small repairs around the home",
+      "Shelves, pictures, mirrors and curtain rails",
+      "Door handles, hinges and cupboard doors",
+      "Bathroom and kitchen sealant renewal",
+      "Odd jobs for landlords and tenants",
+    ],
+    process: [
+      "Send us your list of jobs (photos help)",
+      "We give you a quote and agree a time",
+      "We complete the jobs and tidy up after ourselves",
+    ],
+    faqs: [
+      {
+        q: "Do you do work at height, such as gutters or roofs?",
+        a: "No — we only take on jobs that can be done safely from the ground or a small step.",
+      },
+      {
+        q: "Can you combine handyman jobs with a clean?",
+        a: "Yes, many clients book small repairs alongside an end of tenancy or deep clean.",
+      },
+    ],
+    metaTitle: "Handyman Services Wellington & Taunton | Cleanfix24",
+    metaDescription:
+      "Furniture assembly, small repairs, shelves, sealant and odd jobs in Wellington, Taunton, Somerset & Devon. Friendly local handyman service.",
+  },
+  {
+    slug: "garden-maintenance",
+    category: "handyman",
+    title: "Garden Maintenance",
+    short:
+      "Lawn mowing, hedge and shrub trimming, weeding and garden tidy-ups — one-off or regular.",
+    intro: [
+      "Keep your garden neat without spending your weekends on it. We mow lawns, trim hedges and shrubs, pull weeds and give overgrown gardens a proper tidy-up.",
+      "Book a one-off visit — for example before selling or letting a property — or regular visits through the growing season.",
+    ],
+    icon: Leaf,
+    features: [
+      "Lawn mowing and edging",
+      "Hedge and shrub trimming (ground level)",
+      "Weeding of beds and borders",
+      "Leaf clearing",
+      "Overgrown garden tidy-ups",
+      "One-off or regular visits",
+    ],
+    process: [
+      "Send us a few photos of the garden",
+      "We quote for a one-off visit or regular care",
+      "We cut, trim, weed and tidy",
+      "Your garden is left neat and ready to enjoy",
+    ],
+    faqs: [
+      {
+        q: "How often should my lawn be mowed?",
+        a: "During spring and summer most lawns look best mowed every one to two weeks.",
+      },
+      {
+        q: "Can you cut tall hedges?",
+        a: "We trim hedges and shrubs that can be reached safely from the ground — we don't do work at height.",
+      },
+    ],
+    metaTitle: "Garden Maintenance & Lawn Mowing Wellington & Taunton | Cleanfix24",
+    metaDescription:
+      "Lawn mowing, hedge trimming, weeding and garden tidy-ups in Wellington, Taunton, Somerset & Devon. One-off or regular visits.",
   },
 
   // ---------- Specialist ----------
@@ -569,7 +655,8 @@ export const SERVICES: Service[] = [
   },
 ];
 
-export const NOT_OFFERED = "carpet cleaning, roof cleaning and gutter cleaning";
+export const NOT_OFFERED =
+  "we don't offer carpet cleaning or any work at height, such as roof, gutter or high-level window cleaning";
 
 export const servicesIn = (category: CategoryId) =>
   SERVICES.filter((s) => s.category === category);

@@ -10,7 +10,7 @@ const STATIC_META: Record<string, PageMeta> = {
   "/": {
     title: "Cleanfix24 - Professional Cleaning Services | Wellington & Taunton, Somerset",
     description:
-      "Family-run cleaning in Wellington, Taunton, Somerset & Devon: regular, deep and end of tenancy cleaning, sofa & mattress cleaning, stain removal, patio cleaning and laundry collection. Free quotes.",
+      "Family-run cleaning in Wellington, Taunton, Somerset & Devon: regular, deep and end of tenancy cleaning, sofa & mattress cleaning, stain removal, patio cleaning, laundry collection, handyman and garden services. Free quotes.",
   },
   "/about": {
     title: "About Us | Cleanfix24 - Family-Run Cleaners in Somerset",
@@ -20,7 +20,7 @@ const STATIC_META: Record<string, PageMeta> = {
   "/services": {
     title: "Our Cleaning Services | Cleanfix24 - Somerset & Devon",
     description:
-      "House, deep, end of tenancy, after builders and commercial cleaning, sofa & mattress cleaning, stain removal, patio and wall cleaning, laundry collection.",
+      "House, deep, end of tenancy, after builders and commercial cleaning, sofa & mattress cleaning, stain removal, patio and wall cleaning, laundry collection, handyman and garden work.",
   },
   "/contact": {
     title: "Contact Us | Cleanfix24 - Free Quotes in Somerset & Devon",

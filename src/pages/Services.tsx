@@ -22,7 +22,7 @@ const Services = () => {
             Our Services
           </h1>
           <p className="text-xl text-center mt-4 text-white/90 max-w-3xl mx-auto animate-fade-in">
-            Home and commercial cleaning, sofas and mattresses, patios and more — inside and out
+            Cleaning inside and out, sofas and mattresses, laundry, handyman and garden jobs
           </p>
         </div>
       </section>
@@ -34,7 +34,7 @@ const Services = () => {
       <section className="pb-4 pt-8">
         <div className="container mx-auto px-4">
           <p className="max-w-3xl mx-auto text-center text-sm text-muted-foreground">
-            Please note: {NOT_OFFERED} are not currently part of our services.
+            Please note: {NOT_OFFERED}.
           </p>
         </div>
       </section>

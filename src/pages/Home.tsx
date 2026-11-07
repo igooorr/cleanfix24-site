@@ -81,7 +81,7 @@ const Home = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Welcome to Cleanfix24</h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
               At Cleanfix24, we provide professional, family-run cleaning services across Somerset and Devon. 
-              From regular and end of tenancy cleans to sofas, mattresses, patios and laundry — we make every space shine. Based in Wellington and Taunton, 
+              From regular and end of tenancy cleans to sofas, mattresses, patios, laundry and garden jobs — we make every space shine. Based in Wellington and Taunton, 
               we're passionate about delivering spotless results you can trust.
             </p>
           </div>
