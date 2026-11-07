@@ -3,6 +3,7 @@ import bathroomImage from "@/assets/bathroom.webp";
 import kitchenImage from "@/assets/kitchen.webp";
 import emptyRoomImage from "@/assets/end-of-tenancy.webp";
 import mattressImage from "@/assets/mattress.webp";
+import patioImage from "@/assets/patio.webp";
 import mouldImage from "@/assets/mould.webp";
 import carImage from "@/assets/car-interior.webp";
 import carSeatBefore from "@/assets/gallery/car-seat-before.webp";
@@ -507,6 +508,7 @@ export const SERVICES: Service[] = [
       "We clear weeds from the joints, wash the surface and rinse everything away, leaving your outdoor space ready to enjoy.",
     ],
     icon: Fence,
+    image: patioImage,
     features: [
       "Pressure washing",
       "Moss and algae removal",
@@ -546,6 +548,7 @@ export const SERVICES: Service[] = [
       "We choose the right method for your wall type, from gentle washing for render and painted surfaces to pressure washing for brick and stone.",
     ],
     icon: Building2,
+    image: patioImage,
     features: [
       "Render and painted walls",
       "Brick and stone walls",
