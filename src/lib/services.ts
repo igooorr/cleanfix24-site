@@ -4,6 +4,13 @@ import kitchenImage from "@/assets/kitchen.webp";
 import emptyRoomImage from "@/assets/end-of-tenancy.webp";
 import mattressImage from "@/assets/mattress.webp";
 import patioImage from "@/assets/patio.webp";
+import afterBuildersImage from "@/assets/after-builders.webp";
+import gOvenBefore from "@/assets/gallery/oven-before.webp";
+import gOvenAfter from "@/assets/gallery/oven-after.webp";
+import gBuildersBathroomBefore from "@/assets/gallery/builders-bathroom-before.webp";
+import gBuildersBathroomAfter from "@/assets/gallery/builders-bathroom-after.webp";
+import gBuildersRoomBefore from "@/assets/gallery/builders-room-before.webp";
+import gBuildersRoomAfter from "@/assets/gallery/builders-room-after.webp";
 import mouldImage from "@/assets/mould.webp";
 import carImage from "@/assets/car-interior.webp";
 import carSeatBefore from "@/assets/gallery/car-seat-before.webp";
@@ -181,6 +188,9 @@ export const SERVICES: Service[] = [
         a: "Yes — many clients add upholstery or mattress cleaning to their deep clean for a complete refresh.",
       },
     ],
+    gallery: [
+      { before: gOvenBefore, after: gOvenAfter, caption: "Oven door: grease and smears removed" },
+    ],
     metaTitle: "Deep Cleaning & Spring Cleaning in Somerset | Cleanfix24",
     metaDescription:
       "Top-to-bottom deep cleaning for homes in Wellington, Taunton, Somerset & Devon. Kitchens, bathrooms, limescale, grease and more. Free quotes.",
@@ -220,6 +230,9 @@ export const SERVICES: Service[] = [
         a: "Ideally yes — an empty property lets us reach every area and gives the best result.",
       },
     ],
+    gallery: [
+      { before: gOvenBefore, after: gOvenAfter, caption: "Oven door: grease and smears removed" },
+    ],
     metaTitle: "End of Tenancy Cleaning Wellington & Taunton | Cleanfix24",
     metaDescription:
       "End of tenancy and move-out cleaning for tenants, landlords and agents in Somerset & Devon. Detailed checklist, inspection-ready results.",
@@ -235,6 +248,7 @@ export const SERVICES: Service[] = [
       "We remove dust from every surface, clean windows and frames, take off paint and plaster splashes where safe, and leave floors spotless.",
     ],
     icon: HardHat,
+    image: afterBuildersImage,
     features: [
       "Fine dust removal from all surfaces",
       "Paint, plaster and adhesive marks",
@@ -254,6 +268,10 @@ export const SERVICES: Service[] = [
         q: "Do you remove building rubbish?",
         a: "We clean the property; heavy building waste should be removed by the builders before we start.",
       },
+    ],
+    gallery: [
+      { before: gBuildersBathroomBefore, after: gBuildersBathroomAfter, caption: "Washroom: tile adhesive haze and debris cleared" },
+      { before: gBuildersRoomBefore, after: gBuildersRoomAfter, caption: "Room: rubble removed and floor cleaned" },
     ],
     metaTitle: "After Builders Cleaning in Somerset & Devon | Cleanfix24",
     metaDescription:

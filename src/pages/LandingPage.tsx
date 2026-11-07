@@ -99,6 +99,30 @@ const LandingPage = () => {
           </div>
         </section>
 
+        {c.gallery.length > 0 && (
+          <section className="py-12 md:py-16" aria-labelledby="lp-gallery">
+            <div className="container mx-auto px-4 max-w-5xl">
+              <h2 id="lp-gallery" className="text-3xl md:text-4xl font-bold text-center mb-3">Before &amp; after</h2>
+              <p className="text-center text-muted-foreground mb-8">Photos taken before and after cleaning.</p>
+              <div className="grid gap-6 md:grid-cols-2">
+                {c.gallery.map((g) => (
+                  <figure key={g.caption} className="bg-card rounded-xl shadow-sm overflow-hidden">
+                    <div className="grid grid-cols-2">
+                      {([["Before", g.before], ["After", g.after]] as const).map(([label, src]) => (
+                        <div key={label} className="relative aspect-square">
+                          <img src={src} alt={`${g.caption} — ${label.toLowerCase()}`} loading="lazy" decoding="async" width={720} height={720} className="w-full h-full object-cover" />
+                          <span className={`absolute top-2 left-2 rounded-full px-3 py-1 text-xs font-semibold text-white ${label === "After" ? "bg-green-600" : "bg-slate-900/75"}`}>{label}</span>
+                        </div>
+                      ))}
+                    </div>
+                    <figcaption className="p-4 text-center font-medium">{g.caption}</figcaption>
+                  </figure>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
         {/* How it works */}
         <section className="py-12 md:py-16">
           <div className="container mx-auto px-4 max-w-5xl">

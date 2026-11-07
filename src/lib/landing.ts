@@ -104,5 +104,6 @@ export function landingContent(l: Landing) {
     features: unique(services.flatMap((s) => s.features)).slice(0, 9),
     process: services[0].process,
     faqs,
+    gallery: services.flatMap((s) => s.gallery ?? []),
   };
 }
